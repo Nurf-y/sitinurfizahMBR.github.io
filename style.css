@@ -3,14 +3,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
+    background-color: #e6f2ff; /* Light blue background */
     color: #333;
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 /* Navigation */
 nav {
-    background: #004080;
+    background: #003366;
     padding: 15px;
     text-align: center;
     position: fixed;
@@ -46,27 +46,58 @@ nav ul li a:hover {
 /* Sections */
 section {
     padding: 80px 50px;
-    text-align: center;
+    text-align: justify; /* Justify text */
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
 }
 
+/* Section Background Colors */
+#about {
+    background: #f0f8ff; /* Light blue */
+}
+
+#education {
+    background: #dbeeff; /* Slightly darker blue */
+}
+
+#experience {
+    background: #c0e0ff; /* Deeper blue */
+}
+
+#skills {
+    background: #99ccff; /* Medium blue */
+}
+
+#certifications {
+    background: #6699cc; /* Darker blue */
+}
+
+/* Headings */
 h1, h2 {
-    color: #004080;
+    color: #003366;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 h2 {
     font-size: 26px;
-    border-bottom: 3px solid #004080;
+    border-bottom: 3px solid #003366;
     display: inline-block;
     padding-bottom: 5px;
 }
 
 /* Contact Section */
 #contact {
-    background: #004080;
+    background: #003366;
     color: white;
     padding: 50px 20px;
     text-align: center;
+    border-radius: 0;
+}
+
+#contact p {
+    font-size: 18px;
 }
 
 #contact a {
@@ -83,5 +114,11 @@ h2 {
 @media (max-width: 768px) {
     section {
         padding: 60px 20px;
+        width: 90%;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
     }
 }
