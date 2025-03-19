@@ -215,3 +215,108 @@ h2 {
         padding: 2rem 1rem;
     }
 }
+/* Add these new CSS styles */
+/* Paragraph Justification */
+#about p,
+.content-box p,
+.experience-box p,
+.leadership-box p {
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 1rem 0;
+    line-height: 1.8;
+}
+
+/* Profile Picture Styles */
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+    border: 5px solid white;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    top: 20px;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Formal Contact Section */
+#contact {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #2c3e50, #3498db);
+}
+
+#contact h2 {
+    color: #2c3e50;
+    animation: none;
+    margin-bottom: 2rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    background: #f1f3f5;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+#contact a {
+    color: #2c3e50;
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+    font-weight: 500;
+}
+
+#contact a:hover {
+    color: #3498db;
+}
+
+/* Updated Color Scheme */
+#contact {
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+}
+
+/* Add Font Awesome CDN in head section */
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
