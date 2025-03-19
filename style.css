@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -23,15 +23,12 @@ header {
     overflow: hidden;
 }
 
-header::before {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 11%);
-    background-size: 20px 20px;
-    transform: translate(-25%, -25%);
-    animation: particles 20s linear infinite;
+header h1 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: float 3s ease-in-out infinite;
 }
 
 nav ul {
@@ -64,13 +61,15 @@ section {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
     color: #2c3e50;
     margin-bottom: 3rem;
     text-align: center;
     position: relative;
     display: inline-block;
     padding: 0 2rem;
+    animation: colorShift 5s infinite alternate;
 }
 
 h2::after {
@@ -98,6 +97,7 @@ h2::after {
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
+    animation: slideIn 0.8s ease-out forwards;
 }
 
 .content-box:hover,
@@ -107,43 +107,15 @@ h2::after {
     transform: translateY(-5px);
 }
 
-.content-box::before,
-.experience-box::before,
-.leadership-box::before,
-.skill-box::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 100px;
-    height: 100px;
-    background: rgba(52, 152, 219, 0.1);
-    border-radius: 50%;
+/* Bullet Points as Flowers */
+ul {
+    list-style: none;
 }
 
-/* Color Variations */
-#about .content-box { background: #ffe8d6; }
-#education .content-box { background: #e3f2fd; }
-#experience .experience-box { background: #f0f4c3; }
-#leadership .leadership-box { background: #ffcdd2; }
-#skills .skill-box { background: #c8e6c9; }
-#certifications { background: #f5f5f5; }
-
-/* Skills Grid */
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.skill-box {
-    text-align: center;
-    padding: 2rem;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+ul li::before {
+    content: '🌸';
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
 
 /* Animations */
@@ -152,225 +124,15 @@ h2::after {
     50% { transform: translateY(-10px); }
 }
 
-@keyframes particles {
-    0% { transform: translate(-25%, -25%) rotate(0deg); }
-    100% { transform: translate(-25%, -25%) rotate(360deg); }
-}
-
-h2 {
-    animation: float 3s ease-in-out infinite;
-}
-
-/* Flower Decoration */
-.flower {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: #ff6b6b;
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    animation: float 4s ease-in-out infinite;
-    opacity: 0.3;
-}
-
-/* Contact Section */
-#contact {
-    text-align: center;
-    background: linear-gradient(135deg, #2c3e50, #3498db);
-    color: white;
-    border-radius: 20px;
-    padding: 3rem;
-    margin: 2rem auto;
-    max-width: 800px;
-}
-
-#contact a {
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0.5rem;
-    padding: 0.5rem 1rem;
-    border: 2px solid white;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-#contact a:hover {
-    background: white;
-    color: #3498db;
-    transform: scale(1.05);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .skills-container {
-        grid-template-columns: 1fr;
-    }
-    
-    section {
-        padding: 2rem 1rem;
-    }
-}
-/* Add these new CSS styles */
-/* Paragraph Justification */
-#about p,
-.content-box p,
-.experience-box p,
-.leadership-box p {
-    text-align: justify;
-    text-justify: inter-word;
-    margin: 1rem 0;
-    line-height: 1.8;
-}
-
-/* Profile Picture Styles */
-.profile-picture {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1rem;
-    border: 5px solid white;
-    border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    overflow: hidden;
-    position: relative;
-    top: 20px;
-}
-
-.profile-picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Formal Contact Section */
-#contact {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 2rem auto;
-    max-width: 800px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-#contact::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #2c3e50, #3498db);
-}
-
-#contact h2 {
-    color: #2c3e50;
-    animation: none;
-    margin-bottom: 2rem;
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.contact-item:hover {
-    transform: translateY(-5px);
-    background: #f1f3f5;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #3498db;
-}
-
-#contact a {
-    color: #2c3e50;
-    text-decoration: none;
-    display: block;
-    margin: 0.5rem 0;
-    font-weight: 500;
-}
-
-#contact a:hover {
-    color: #3498db;
-}
-
-/* Updated Color Scheme */
-#contact {
-    background: #ffffff;
-    border: 1px solid #e9ecef;
-}
-
-/* Add Font Awesome CDN in head section */
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-/* Add these new styles at the bottom of your CSS */
-/* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&display=swap');
-
-/* Enhanced Typography */
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #2c3e50;
-    animation: float 3s ease-in-out infinite, colorShift 5s infinite alternate;
-}
-
-h3 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: #3498db;
-    margin-bottom: 1.5rem;
-}
-
 @keyframes colorShift {
     0% { color: #2c3e50; }
     50% { color: #3498db; }
     100% { color: #e74c3c; }
 }
 
-/* Enhanced Animations */
 @keyframes slideIn {
     from { transform: translateX(-100%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
-}
-
-.content-box,
-.experience-box,
-.leadership-box,
-.skill-box {
-    animation: slideIn 0.8s ease-out forwards;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
 }
 
 /* Cat Animation */
@@ -394,7 +156,19 @@ h3 {
     to { transform: rotate(360deg); }
 }
 
-/* Enhanced Contact Section */
+/* Smiley Animation */
+.smiley-float {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: float 4s ease-in-out infinite;
+}
+
+.smiley-float:nth-child(1) { left: 10%; top: 20%; }
+.smiley-float:nth-child(2) { right: 15%; top: 40%; }
+.smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
+
+/* Contact Section */
 #contact {
     background: #ffffff;
     border-radius: 20px;
@@ -402,16 +176,6 @@ h3 {
     position: relative;
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
-}
-
-#contact::before {
-    content: '📧';
-    position: absolute;
-    font-size: 8rem;
-    opacity: 0.1;
-    right: -30px;
-    top: -30px;
-    transform: rotate(25deg);
 }
 
 .contact-container {
@@ -442,33 +206,24 @@ h3 {
     animation: pulse 1.5s infinite;
 }
 
-.contact-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #3498db, #2c3e50);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
-.contact-item:hover::after {
-    opacity: 1;
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
 }
-
-/* Smiley Animation */
-.smiley-float {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.2;
-    animation: float 4s ease-in-out infinite;
-}
-
-.smiley-float:nth-child(1) { left: 10%; top: 20%; }
-.smiley-float:nth-child(2) { right: 15%; top: 40%; }
-.smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
-
-/* Add to HTML head */
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
