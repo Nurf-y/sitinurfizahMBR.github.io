@@ -320,3 +320,155 @@ h2 {
 
 /* Add Font Awesome CDN in head section */
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+/* Add these new styles at the bottom of your CSS */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&display=swap');
+
+/* Enhanced Typography */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    animation: float 3s ease-in-out infinite, colorShift 5s infinite alternate;
+}
+
+h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes colorShift {
+    0% { color: #2c3e50; }
+    50% { color: #3498db; }
+    100% { color: #e74c3c; }
+}
+
+/* Enhanced Animations */
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.content-box,
+.experience-box,
+.leadership-box,
+.skill-box {
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Cat Animation */
+.cat-emoji {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 3rem;
+    animation: bounce 2s infinite, spin 4s infinite linear;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Enhanced Contact Section */
+#contact {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+}
+
+#contact::before {
+    content: '📧';
+    position: absolute;
+    font-size: 8rem;
+    opacity: 0.1;
+    right: -30px;
+    top: -30px;
+    transform: rotate(25deg);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-item {
+    padding: 2rem;
+    background: linear-gradient(145deg, #f8f9fa, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+.contact-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #3498db;
+    animation: pulse 1.5s infinite;
+}
+
+.contact-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3498db, #2c3e50);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-item:hover::after {
+    opacity: 1;
+}
+
+/* Smiley Animation */
+.smiley-float {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+    animation: float 4s ease-in-out infinite;
+}
+
+.smiley-float:nth-child(1) { left: 10%; top: 20%; }
+.smiley-float:nth-child(2) { right: 15%; top: 40%; }
+.smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
+
+/* Add to HTML head */
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
