@@ -1,8 +1,11 @@
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Navigation */
@@ -10,11 +13,17 @@ nav {
     background: #ff6f61;
     padding: 15px;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -26,20 +35,112 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffe5d9;
 }
 
 /* Sections */
 section {
-    padding: 50px;
+    padding: 80px 50px;
     text-align: center;
 }
 
 h1, h2 {
     color: #ff6f61;
+    margin-bottom: 20px;
 }
 
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 26px;
+    border-bottom: 3px solid #ff6f61;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Images */
 img {
     width: 200px;
     border-radius: 10px;
     margin: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* About & Experience Sections */
+#about, #experience, #skills, #education, #certifications {
+    background: #fff;
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 40px;
+    max-width: 800px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#about p, #experience ul, #skills ul, #education ul, #certifications ul {
+    font-size: 18px;
+}
+
+/* List Styles */
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+/* Contact Section */
+#contact {
+    background: #ff6f61;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#contact p, #contact a {
+    font-size: 18px;
+    color: white;
+}
+
+#contact a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 60px 20px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
 }
