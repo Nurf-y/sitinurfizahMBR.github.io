@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e6f2ff; /* Light blue background */
+    background-color: #e6f2ff;
     color: #333;
     line-height: 1.8;
 }
@@ -45,32 +45,45 @@ nav ul li a:hover {
 
 /* Sections */
 section {
+    height: 100vh; /* Full-screen height for each section */
     padding: 80px 50px;
-    text-align: justify; /* Justify text */
+    text-align: justify;
     width: 80%;
     margin: 0 auto;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Section Background Colors */
+/* Unique Backgrounds for Each Section */
+#home {
+    background: #e6f2ff;
+}
+
 #about {
-    background: #f0f8ff; /* Light blue */
+    background: #d0e3ff;
 }
 
 #education {
-    background: #dbeeff; /* Slightly darker blue */
+    background: #b0d4ff;
 }
 
 #experience {
-    background: #c0e0ff; /* Deeper blue */
+    background: #8ac4ff;
 }
 
 #skills {
-    background: #99ccff; /* Medium blue */
+    background: #66b3ff;
 }
 
 #certifications {
-    background: #6699cc; /* Darker blue */
+    background: #3399ff;
+}
+
+#contact {
+    background: #003366;
+    color: white;
+    text-align: center;
 }
 
 /* Headings */
@@ -88,14 +101,6 @@ h2 {
 }
 
 /* Contact Section */
-#contact {
-    background: #003366;
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-    border-radius: 0;
-}
-
 #contact p {
     font-size: 18px;
 }
