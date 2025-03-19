@@ -3,84 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siti Nurfizah's Portfolio</title>
+    <title>Siti Nurfizah | Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home">
-        <h1>Welcome to My Portfolio</h1>
-        <img src="images/profile.jpg" alt="Siti Nurfizah">
-        <p>Hi, I'm Siti Nurfizah! As a fresh graduate, I am deeply passionate about logistics, marketing, technology, and design. I enjoy exploring innovative solutions, whether it is optimizing supply chains, crafting compelling marketing strategies, or keeping up with the latest tech trends.</p>
-    </section>
+    <header>
+        <h1>Siti Nurfizah</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- About Me Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a dedicated individual with a passion for logistics, marketing, and technology. I thrive in dynamic environments where I can apply my analytical skills and creativity to solve real-world challenges. My strong research skills and problem-solving mindset enable me to adapt and grow in any professional setting.</p>
+        <p>Hi, I’m <strong>Siti Nurfizah</strong>, a dedicated professional with expertise in logistics, customer service, event planning, and digital media...</p>
     </section>
 
     <!-- Education Section -->
     <section id="education">
         <h2>Education</h2>
-        <p><strong>Universiti Malaysia Kelantan (UMK)</strong> – Bachelor’s Degree in Entrepreneurship (Logistics & Distribution Trade) | 2020 – 2024</p>
-        <p>GPA: 3.39 | Dean’s List (Semesters 5, 6 & 7)</p>
-        <p>2nd Place in Business Portfolio Entrepreneurship Program</p>
+        <div class="content-box">
+            <p><strong>Bachelor’s Degree in Logistics & Supply Chain Management</strong> - Universiti Malaysia Kelantan (UMK)</p>
+            <p><em>Final Year Project:</em> Factors Influencing Customer Satisfaction on Reverse Logistics in Shopee...</p>
+        </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Work Experience Section -->
     <section id="experience">
         <h2>Work Experience</h2>
-        <p><strong>Logistics Intern – ANGKASA Sdn. Bhd.</strong> | March – July 2024</p>
-        <ul>
-            <li>Managed logistics for corporate events with 100+ attendees.</li>
-            <li>Led event promotions, increasing attendance by 30%.</li>
-            <li>Designed marketing materials and assisted in guest coordination.</li>
-        </ul>
+        <div class="experience-box">
+            <h3>Assistant, Store & Customer Service</h3>
+            <p><em>ANGKASA Sendirian Berhad | March 2024 – July 2024</em></p>
+            <ul>
+                <li>Managed store operations and inventory tracking.</li>
+                <li>Designed promotional materials for Jual Madani.</li>
+                <li><strong>Achievement:</strong> Reduced customer complaints by improving service efficiency.</li>
+            </ul>
+        </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills & Competencies</h2>
-        <ul>
-            <li>Event Planning & Execution</li>
-            <li>Public Speaking & Emcee Role</li>
-            <li>Graphic Design & Branding</li>
-            <li>Social Media Management</li>
-            <li>Microsoft Office & Google Workspace</li>
-        </ul>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li>Social Media Marketing & Paid Advertising</li>
-            <li>Microsoft Excel: Tips & Tricks</li>
-            <li>Web Design & Canva Training</li>
-        </ul>
+    <!-- Leadership Section -->
+    <section id="leadership">
+        <h2>Leadership & Projects</h2>
+        <div class="leadership-box">
+            <h3>Head of Technical & Media – Malaysia Day Poster Competition</h3>
+            <p><em>Web Design Club | 2022</em></p>
+            <ul>
+                <li>Managed technical setup for 55+ participants nationwide.</li>
+                <li>Integrated multimedia elements for a seamless event experience.</li>
+            </ul>
+        </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <p><strong>Email:</strong> Sitinurfizah@outlook.com</p>
-        <p><strong>LinkedIn:</strong> <a href="https//:sitinurfizah-mbr-35003534a">linkedin.com/in/yourname</a></p>
+        <p><strong>Email:</strong> <a href="mailto:sitinurfizah@outlook.com">sitinurfizah@outlook.com</a></p>
+        <p><strong>Phone:</strong> 011 6443 2310</p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sitinurfizah-mbr-35003534a">linkedin.com/in/sitinurfizah-mbr-35003534a</a></p>
+        <p><strong>GitHub Website:</strong> <a href="https://nurf-y.github.io/sitinurfizahMBR.github.io/">Visit My Site</a></p>
     </section>
+
+    <!-- Followers Counter -->
+    <footer>
+        <p>Followers: <span id="github-followers">Loading...</span></p>
+    </footer>
+
+    <script>
+        fetch('https://api.github.com/users/Nurf-Y')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('github-followers').textContent = data.followers;
+            })
+            .catch(error => console.error('Error fetching followers:', error));
+    </script>
 
 </body>
 </html>
