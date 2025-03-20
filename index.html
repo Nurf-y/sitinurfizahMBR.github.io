@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Shared CSS for all pages */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -16,12 +16,13 @@
         }
 
         body {
-            background: #f0f5ff;
+            background: linear-gradient(135deg, #f0f5ff, #e6e9f0);
             line-height: 1.6;
             overflow-x: hidden;
             animation: fadeIn 1s ease-in-out;
         }
 
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
@@ -62,6 +63,7 @@
             transform: translateY(-2px);
         }
 
+        /* Section Styles */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -92,6 +94,7 @@
             border-radius: 2px;
         }
 
+        /* Content Bubbles */
         .content-box {
             background: white;
             border-radius: 20px;
@@ -108,24 +111,13 @@
             transform: translateY(-5px);
         }
 
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1rem;
-            border: 5px solid white;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            overflow: hidden;
-            position: relative;
-            top: 20px;
+        /* Emoji Bullet Points */
+        .emoji-bullet {
+            font-size: 1.2rem;
+            margin-right: 10px;
         }
 
-        .profile-picture img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -147,16 +139,6 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        .cat-emoji {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
-            animation: bounce 2s infinite, spin 4s infinite linear;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
@@ -167,6 +149,18 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Cat Animation */
+        .cat-emoji {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            animation: bounce 2s infinite, spin 4s infinite linear;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Smiley Animation */
         .smiley-float {
             position: absolute;
             font-size: 2rem;
@@ -178,6 +172,7 @@
         .smiley-float:nth-child(2) { right: 15%; top: 40%; }
         .smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
 
+        /* Footer Styles */
         footer {
             text-align: center;
             padding: 1rem;
@@ -214,6 +209,21 @@
         <h2>Home</h2>
         <div class="content-box">
             <p>Welcome to my portfolio website! Explore my work and achievements.</p>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section>
+        <h2>My Hobbies</h2>
+        <div class="content-box">
+            <ul>
+                <li><span class="emoji-bullet">🎨</span> Drawing and Painting</li>
+                <li><span class="emoji-bullet">📚</span> Reading Books</li>
+                <li><span class="emoji-bullet">🎧</span> Listening to Music</li>
+                <li><span class="emoji-bullet">🌿</span> Gardening</li>
+                <li><span class="emoji-bullet">✈️</span> Traveling</li>
+                <li><span class="emoji-bullet">🍳</span> Cooking New Recipes</li>
+            </ul>
         </div>
     </section>
 
