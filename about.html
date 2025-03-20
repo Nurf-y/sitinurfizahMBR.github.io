@@ -1,12 +1,3 @@
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="experience.html">Work Experience</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | SITINURFIZAH</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Cat Animation -->
+    <div class="cat-emoji">🐈</div>
+    <div class="smiley-float">😊</div>
+    <div class="smiley-float">🌟</div>
+    <div class="smiley-float">💌</div>
+
+    <!-- Navigation Bar -->
     <header>
         <h1>About Me</h1>
         <nav>
@@ -28,9 +28,33 @@
             </ul>
         </nav>
     </header>
-    <section>
+
+    <!-- About Me Section -->
+    <section id="about" class="animated-section">
         <h2>About Me</h2>
-        <p>Hi, I'm SITINURFIZAH (Nurfy), a dedicated and detail-oriented professional with experience in logistics, customer service, event management, and digital media.</p>
+        <div class="content-box">
+            <!-- Profile Picture -->
+            <div class="profile-picture">
+                <img src="images/profile-picture.jpg" alt="SITINURFIZAH's Profile Picture">
+            </div>
+            <p>Hi, I'm <strong>SITINURFIZAH (Nurfy)</strong>, a dedicated and detail-oriented professional with experience in logistics, customer service, event management, and digital media. I thrive in fast-paced environments and am currently seeking new career opportunities where I can apply my expertise in logistics, data analysis, or research while continuing to grow professionally.</p>
+            <p>With a strong passion for problem-solving, efficiency, and creative solutions, I have worked in various industries, blending my skills in operations, marketing, and technical support. My background includes managing store logistics, coordinating events, designing marketing materials, and troubleshooting technical issues during live events.</p>
+            <p>I am fluent in Malay and English, with basic proficiency in Chinese. I am also familiar with tools like Canva, Microsoft Office, and Google Workspace, and I have a basic understanding of cybersecurity concepts through self-learning.</p>
+        </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Followers: <span id="github-followers">Loading...</span></p>
+    </footer>
+
+    <script>
+        fetch('https://api.github.com/users/Nurf-Y')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('github-followers').textContent = data.followers;
+            })
+            .catch(error => console.error('Error fetching followers:', error));
+    </script>
 </body>
 </html>
