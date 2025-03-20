@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | SITINURFIZAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif; /* Changed from Poppins to Montserrat */
         }
 
         body {
@@ -31,6 +31,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
+            animation: headerPulse 3s infinite ease-in-out; /* New header animation */
         }
 
         header h1 {
@@ -38,7 +39,7 @@
             font-size: 4rem;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite, scaleIn 1.5s ease-out; /* Added scaleIn */
         }
 
         nav ul {
@@ -56,11 +57,12 @@
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
+            animation: navFade 0.5s ease forwards; /* New nav item animation */
         }
 
         nav a:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            transform: translateY(-2px) rotate(2deg); /* Enhanced hover with slight rotation */
         }
 
         /* Section Styles */
@@ -79,7 +81,7 @@
             position: relative;
             display: inline-block;
             padding: 0 2rem;
-            animation: colorShift 5s infinite alternate;
+            animation: colorShift 5s infinite alternate, bounceIn 1s ease-out; /* Added bounceIn */
         }
 
         h2::after {
@@ -92,6 +94,7 @@
             height: 4px;
             background: #3498db;
             border-radius: 2px;
+            animation: stretch 2s infinite alternate; /* New underline animation */
         }
 
         /* Content Bubbles */
@@ -104,17 +107,18 @@
             transition: transform 0.3s ease;
             position: relative;
             overflow: hidden;
-            animation: slideIn 0.8s ease-out forwards;
+            animation: slideIn 0.8s ease-out forwards, glow 2s infinite alternate; /* Added glow */
         }
 
         .content-box:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02); /* Enhanced hover effect */
         }
 
         /* Emoji Bullet Points */
         .emoji-bullet {
             font-size: 1.2rem;
             margin-right: 10px;
+            animation: pulse 1.5s infinite; /* New emoji animation */
         }
 
         /* Animations */
@@ -149,6 +153,44 @@
             to { transform: rotate(360deg); }
         }
 
+        /* New Animations */
+        @keyframes headerPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes navFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes stretch {
+            0% { width: 60px; }
+            100% { width: 100px; }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+            100% { box-shadow: 0 10px 40px rgba(52,152,219,0.3); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
         /* Cat Animation */
         .cat-emoji {
             position: fixed;
@@ -165,12 +207,18 @@
             position: absolute;
             font-size: 2rem;
             opacity: 0.2;
-            animation: float 4s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite, fadePulse 2s infinite; /* Added fadePulse */
         }
 
-        .smiley-float:nth-child(1) { left: 10%; top: 20%; }
-        .smiley-float:nth-child(2) { right: 15%; top: 40%; }
-        .smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
+        .smiley-float:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+        .smiley-float:nth-child(2) { right: 15%; top: 40%; animation-delay: 1s; }
+        .smiley-float:nth-child(3) { left: 30%; bottom: 20%; animation-delay: 2s; }
+
+        @keyframes fadePulse {
+            0% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+            100% { opacity: 0.2; }
+        }
 
         /* Footer Styles */
         footer {
@@ -179,6 +227,12 @@
             background: #2c3e50;
             color: white;
             margin-top: 2rem;
+            animation: slideUp 1s ease-out; /* New footer animation */
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
