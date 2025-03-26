@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | SITINURFIZAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         /* Base Styles */
         * {
@@ -16,34 +16,31 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            background: #0a0a0a;
+            color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #00d4ff;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         header h1 {
-            font-family: 'Comic Neue', cursive;
-            font-size: 4rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
+            text-shadow: 2px 2px 6px rgba(0, 212, 255, 0.8);
         }
 
         nav ul {
             list-style: none;
-            padding: 1rem 0;
             display: flex;
             justify-content: center;
             gap: 2rem;
@@ -51,77 +48,59 @@
         }
 
         nav a {
-            color: white;
+            color: #00d4ff;
             text-decoration: none;
             padding: 0.5rem 1rem;
             border-radius: 25px;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         nav a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
         }
 
-        /* Section Styles */
+        /* Sections */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #00d4ff;
             text-align: center;
-            position: relative;
-            display: inline-block;
-            padding: 0 2rem;
-            animation: colorShift 5s infinite alternate;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 6px rgba(0, 212, 255, 0.8);
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 2px;
-        }
-
-        /* Content Bubbles */
+        /* Content Box */
         .content-box {
-            background: white;
-            border-radius: 20px;
+            background: #1a1a1a;
+            border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
             transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out forwards;
         }
 
         .content-box:hover {
             transform: translateY(-5px);
         }
 
-        /* Profile Picture Styles */
+        /* Profile Picture */
         .profile-picture {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1rem;
-            border: 5px solid white;
+            width: 140px;
+            height: 140px;
+            border: 4px solid #00d4ff;
             border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             overflow: hidden;
-            position: relative;
-            top: 20px;
+            margin: auto;
+            display: block;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.8);
         }
 
         .profile-picture img {
@@ -130,10 +109,40 @@
             object-fit: cover;
         }
 
-        /* Emoji Bullet Points */
-        .emoji-bullet {
+        /* Skills List */
+        .skills-list {
+            list-style: none;
+            text-align: center;
+        }
+
+        .skills-list li {
             font-size: 1.2rem;
-            margin-right: 10px;
+            margin: 10px 0;
+            font-weight: 500;
+        }
+
+        .skills-list i {
+            color: #00d4ff;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #16213e;
+            color: #00d4ff;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Animations */
@@ -142,71 +151,9 @@
             to { opacity: 1; }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes colorShift {
-            0% { color: #2c3e50; }
-            50% { color: #3498db; }
-            100% { color: #e74c3c; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Cat Animation */
-        .cat-emoji {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
-            animation: bounce 2s infinite, spin 4s infinite linear;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        /* Smiley Animation */
-        .smiley-float {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.2;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .smiley-float:nth-child(1) { left: 10%; top: 20%; }
-        .smiley-float:nth-child(2) { right: 15%; top: 40%; }
-        .smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: #2c3e50;
-            color: white;
-            margin-top: 2rem;
-        }
     </style>
 </head>
 <body>
-    <!-- Cat Animation -->
-    <div class="cat-emoji">🐈</div>
-    <div class="smiley-float">😊</div>
-    <div class="smiley-float">🌟</div>
-    <div class="smiley-float">💌</div>
 
     <!-- Navigation Bar -->
     <header>
@@ -230,7 +177,22 @@
             <div class="profile-picture">
                 <img src="profile.jpg" alt="Profile Picture">
             </div>
-            <p>Hi, I'm <strong>SITINURFIZAH (Nurfy)</strong>, a dedicated and detail-oriented professional with experience in logistics, customer service, event management, and digital media. I thrive in fast-paced environments and am currently seeking new career opportunities where I can apply my expertise in logistics, data analysis, or research while continuing to grow professionally.</p>
+            <p>Hi, I'm <strong>SITINURFIZAH (Nurfy)</strong>, a detail-oriented professional passionate about **technology, creativity, and problem-solving**. I thrive in fast-paced environments and am currently seeking career opportunities in **logistics, data analysis, and research**.</p>
+            <p>Beyond that, I have a keen interest in **web development, Canva design, data entry, and game development**, where I explore innovative ways to enhance digital experiences.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+        <h2>My Skills & Interests</h2>
+        <div class="content-box">
+            <ul class="skills-list">
+                <li><i class="fas fa-code"></i> Web Development</li>
+                <li><i class="fas fa-paint-brush"></i> Canva Design</li>
+                <li><i class="fas fa-keyboard"></i> Data Entry</li>
+                <li><i class="fas fa-gamepad"></i> Game Development</li>
+                <li><i class="fas fa-chart-line"></i> Logistics & Data Analysis</li>
+            </ul>
         </div>
     </section>
 
@@ -241,5 +203,6 @@
         <p>Phone: <a href="tel:01164432310">011 6443 2310</a></p>
         <p>LinkedIn: <a href="https://linkedin.com/in/sitinurfizah-mbr-35003534a">LinkedIn Profile</a></p>
     </footer>
+
 </body>
 </html>
