@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | SITINURFIZAH</title>
+    <title>Education | SITINURFIZAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -22,15 +22,13 @@
             animation: fadeIn 1s ease-in-out;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
             background: linear-gradient(135deg, #2c3e50, #3498db);
             color: white;
             padding: 2rem;
             text-align: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
         }
 
         header h1 {
@@ -63,7 +61,7 @@
             transform: translateY(-2px);
         }
 
-        /* Section Styles */
+        /* Sections */
         section {
             padding: 4rem 2rem;
             max-width: 1200px;
@@ -133,22 +131,6 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Cat Animation */
-        .cat-emoji {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
-            animation: bounce 2s infinite;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
         /* Footer */
         footer {
             text-align: center;
@@ -160,12 +142,9 @@
     </style>
 </head>
 <body>
-    <!-- Cat Animation -->
-    <div class="cat-emoji">🐈</div>
-
     <!-- Navigation Bar -->
     <header>
-        <h1>About Me</h1>
+        <h1>Education</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -178,21 +157,22 @@
         </nav>
     </header>
 
-    <!-- About Me Section -->
+    <!-- Education Section -->
     <section>
-        <h2>Who Am I?</h2>
+        <h2>My Education</h2>
+        
         <div class="content-box">
-            <p>Hello! I'm <strong>SitiNurfizah</strong>, a passionate individual with a background in logistics and a love for technology, marketing, and problem-solving. I enjoy working on creative projects, designing engaging content, and continuously learning new skills.</p>
+            <h3>📚 STPM (Sijil Tinggi Persekolahan Malaysia)</h3>
+            <p><strong>Institution:</strong> [Your School Name]</p>
+            <p><strong>Field of Study:</strong> [Your Major/Subjects]</p>
+            <p><strong>Year:</strong> [Your Graduation Year]</p>
         </div>
 
-        <h2>What I Do</h2>
         <div class="content-box">
-            <ul>
-                <li>💡 <strong>Logistics & Research:</strong> Analyzing trends and improving supply chain efficiency.</li>
-                <li>🎨 <strong>Design & Marketing:</strong> Creating visuals, posters, and digital content.</li>
-                <li>📊 <strong>Data & ICT:</strong> Working with technology, cybersecurity, and training.</li>
-                <li>🛠️ <strong>Problem-Solving:</strong> Finding solutions for technical and operational challenges.</li>
-            </ul>
+            <h3>🎓 SPM (Sijil Pelajaran Malaysia)</h3>
+            <p><strong>Institution:</strong> [Your School Name]</p>
+            <p><strong>Field of Study:</strong> [Your Major/Subjects]</p>
+            <p><strong>Year:</strong> [Your Graduation Year]</p>
         </div>
     </section>
 
