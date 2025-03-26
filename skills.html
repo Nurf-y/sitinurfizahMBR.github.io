@@ -3,189 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Certificates | SITINURFIZAH</title>
+    <title>SITINURFIZAH | Cyber Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Cyberpunk Base Styles */
+        /* === CYBERPUNK THEME === */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Roboto Mono', monospace;
         }
 
         body {
-            background: radial-gradient(circle, #0f0f0f, #1a1a1a);
-            color: #0ff;
+            background: #0a0a12;
+            color: #00ffea;
             line-height: 1.6;
             overflow-x: hidden;
-            animation: fadeIn 1s ease-in-out;
         }
 
-        /* Neon Glow */
-        .neon-text {
-            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
-        }
-
-        /* Header Styles */
+        /* === GLOWING HEADER === */
         header {
-            background: linear-gradient(135deg, #111, #222);
+            background: rgba(0, 10, 20, 0.8);
+            border-bottom: 1px solid #00ffea;
+            box-shadow: 0 0 20px rgba(0, 255, 234, 0.3);
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
-            border-bottom: 3px solid #0ff;
+            position: relative;
         }
 
         header h1 {
+            font-family: 'Orbitron', sans-serif;
             font-size: 3.5rem;
-            color: #0ff;
-            letter-spacing: 2px;
-            animation: glitch 1.5s infinite alternate;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #00ffea;
+            margin-bottom: 1rem;
+            animation: glitch 2s infinite alternate;
         }
 
-        /* Glitch Effect */
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px 5px #0ff, -2px -2px 5px #ff00ff; }
-            50% { text-shadow: -2px -2px 5px #ff00ff, 2px 2px 5px #0ff; }
-            100% { text-shadow: 2px -2px 5px #0ff, -2px 2px 5px #ff00ff; }
-        }
-
+        /* === TERMINAL-LIKE NAV === */
         nav ul {
             list-style: none;
-            padding: 1rem 0;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
         nav a {
-            color: #0ff;
+            color: #00ffea;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid #00ffea;
+            border-radius: 25px;
             transition: all 0.3s ease;
-            border: 1px solid transparent;
         }
 
         nav a:hover {
-            border: 1px solid #0ff;
-            text-shadow: 0 0 10px #0ff;
+            background: #00ffea;
+            color: #0a0a12;
+            box-shadow: 0 0 15px #00ffea;
         }
 
-        /* Section Styles */
+        /* === SECTIONS (CYBER BOXES) === */
         section {
-            padding: 4rem 2rem;
-            max-width: 1100px;
+            padding: 3rem 2rem;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         h2 {
+            font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             text-align: center;
-            color: #ff00ff;
             margin-bottom: 2rem;
-            text-shadow: 0 0 8px #ff00ff;
+            text-shadow: 0 0 8px #00ffea;
+            position: relative;
         }
 
-        /* Cyberpunk Content Box */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: #00ffea;
+            box-shadow: 0 0 10px #00ffea;
+        }
+
         .content-box {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 20, 40, 0.6);
+            border: 1px solid #00ffea;
             border-radius: 10px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 0 15px #0ff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 234, 0.2);
+            transition: transform 0.3s ease;
         }
 
         .content-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 25px #0ff;
+            box-shadow: 0 0 25px #00ffea;
         }
 
-        /* Neon Bullet Points */
-        .neon-bullet {
-            font-size: 1.3rem;
+        /* === CYBERPUNK LIST ITEMS === */
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        li::before {
+            content: ">>";
+            color: #ff00ea;
             margin-right: 10px;
-            color: #ff00ff;
-            text-shadow: 0 0 5px #ff00ff;
         }
 
-        /* Footer Styles */
+        /* === FOOTER (CONTACT) === */
         footer {
             text-align: center;
-            padding: 1rem;
-            background: #111;
-            border-top: 3px solid #0ff;
-            color: #0ff;
+            padding: 2rem;
+            background: rgba(0, 10, 20, 0.8);
+            border-top: 1px solid #00ffea;
             margin-top: 2rem;
         }
 
         footer a {
-            color: #ff00ff;
+            color: #00ffea;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         footer a:hover {
-            text-shadow: 0 0 10px #ff00ff;
+            text-shadow: 0 0 10px #00ffea;
         }
 
+        /* === ANIMATIONS === */
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #00ffea, -2px 0 #ff00ea; }
+            100% { text-shadow: -2px 0 #00ffea, 2px 0 #ff00ea; }
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            nav ul { gap: 1rem; }
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- === HEADER === -->
     <header>
-        <h1>Skills & Certificates</h1>
+        <h1>SITINURFIZAH</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="education.html">Education</a></li>
-                <li><a href="skills.html">Skills & Certificates</a></li>
-                <li><a href="experience.html">Work Experience</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills & Certificates</a></li>
+                <li><a href="#experience">Work Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Skills Section -->
-    <section>
-        <h2>Skills</h2>
+    <!-- === HOME === -->
+    <section id="home">
+        <h2>Home</h2>
+        <div class="content-box">
+            <p>Welcome to my cyber portfolio. Explore my digital footprint.</p>
+        </div>
+    </section>
+
+    <!-- === ABOUT ME === -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="content-box">
+            <p>[Your bio here]</p>
+        </div>
+    </section>
+
+    <!-- === EDUCATION === -->
+    <section id="education">
+        <h2>Education</h2>
         <div class="content-box">
             <ul>
-                <li><span class="neon-bullet">🚀</span> Logistics & Supply Chain Management</li>
-                <li><span class="neon-bullet">⚡</span> Event Planning & Coordination</li>
-                <li><span class="neon-bullet">🎨</span> Marketing & Graphic Design</li>
-                <li><span class="neon-bullet">📞</span> Customer Service & Communication</li>
-                <li><span class="neon-bullet">🖥️</span> Technical & Media Management</li>
-                <li><span class="neon-bullet">📊</span> Data Research & Analysis</li>
-                <li><span class="neon-bullet">🔒</span> Basic Cybersecurity Knowledge</li>
-                <li><span class="neon-bullet">🌐</span> Languages: Malay, English, Basic Chinese</li>
+                <li>Degree in [Your Field]</li>
+                <li>University Name</li>
             </ul>
         </div>
     </section>
 
-    <!-- Certificates Section -->
-    <section>
-        <h2>Certificates</h2>
+    <!-- === SKILLS & CERTIFICATES === -->
+    <section id="skills">
+        <h2>Skills & Certificates</h2>
         <div class="content-box">
             <ul>
-                <li><span class="neon-bullet">📜</span> Microsoft Office Suite (Intermediate Level)</li>
-                <li><span class="neon-bullet">📜</span> Google Workspace (Intermediate Level)</li>
-                <li><span class="neon-bullet">📜</span> Basic Cybersecurity Training (PeopleLogy, 2024)</li>
-                <li><span class="neon-bullet">📜</span> Social Media Marketing & Paid Advertising (TikTok & Facebook)</li>
-                <li><span class="neon-bullet">📜</span> Microsoft Excel: Advanced Data Management</li>
+                <li>Programming: HTML, CSS, JavaScript</li>
+                <li>Certified in [Your Certification]</li>
             </ul>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- === WORK EXPERIENCE === -->
+    <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="content-box">
+            <ul>
+                <li>Job Title at Company</li>
+                <li>Responsibilities...</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- === CONTACT (FOOTER) === -->
     <footer id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:sitinurfizah@outlook.com">sitinurfizah@outlook.com</a></p>
-        <p>Phone: <a href="tel:01164432310">011 6443 2310</a></p>
-        <p>LinkedIn: <a href="https://linkedin.com/in/sitinurfizah-mbr-35003534a">LinkedIn Profile</a></p>
+        <h2>Contact</h2>
+        <p>Reach out via LinkedIn or email.</p>
     </footer>
 </body>
 </html>
