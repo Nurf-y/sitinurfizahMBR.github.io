@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education | SITINURFIZAH</title>
+    <title>About Me | SITINURFIZAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -94,7 +94,7 @@
             border-radius: 2px;
         }
 
-        /* Content Bubbles */
+        /* Content Box */
         .content-box {
             background: white;
             border-radius: 20px;
@@ -109,12 +109,6 @@
 
         .content-box:hover {
             transform: translateY(-5px);
-        }
-
-        /* Emoji Bullet Points */
-        .emoji-bullet {
-            font-size: 1.2rem;
-            margin-right: 10px;
         }
 
         /* Animations */
@@ -144,35 +138,18 @@
             50% { transform: translateY(-20px); }
         }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
         /* Cat Animation */
         .cat-emoji {
             position: fixed;
             bottom: 20px;
             right: 20px;
             font-size: 3rem;
-            animation: bounce 2s infinite, spin 4s infinite linear;
+            animation: bounce 2s infinite;
             cursor: pointer;
             z-index: 1000;
         }
 
-        /* Smiley Animation */
-        .smiley-float {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.2;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .smiley-float:nth-child(1) { left: 10%; top: 20%; }
-        .smiley-float:nth-child(2) { right: 15%; top: 40%; }
-        .smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
-
-        /* Footer Styles */
+        /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
@@ -185,13 +162,10 @@
 <body>
     <!-- Cat Animation -->
     <div class="cat-emoji">🐈</div>
-    <div class="smiley-float">📚</div>
-    <div class="smiley-float">🎓</div>
-    <div class="smiley-float">🌟</div>
 
     <!-- Navigation Bar -->
     <header>
-        <h1>Education</h1>
+        <h1>About Me</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -204,14 +178,20 @@
         </nav>
     </header>
 
-    <!-- Education Section -->
+    <!-- About Me Section -->
     <section>
-        <h2>Education</h2>
+        <h2>Who Am I?</h2>
+        <div class="content-box">
+            <p>Hello! I'm <strong>SitiNurfizah</strong>, a passionate individual with a background in logistics and a love for technology, marketing, and problem-solving. I enjoy working on creative projects, designing engaging content, and continuously learning new skills.</p>
+        </div>
+
+        <h2>What I Do</h2>
         <div class="content-box">
             <ul>
-                <li><span class="emoji-bullet">🎓</span> <strong>Bachelor's Degree in Logistics & Supply Chain Management</strong> - Universiti Malaysia Kelantan (UMK) Year 2020 - 2024</li>
-                <li><span class="emoji-bullet">📝</span> <em>Final Year Project:</em> Factors Influencing Customer Satisfaction on Reverse Logistics in Shopee Among University Students in the Eastern State of Malaysia</li>
-                <li><span class="emoji-bullet">📄</span> <em>Additional Research Paper:</em> Logistics and Networking in Malaysia</li>
+                <li>💡 <strong>Logistics & Research:</strong> Analyzing trends and improving supply chain efficiency.</li>
+                <li>🎨 <strong>Design & Marketing:</strong> Creating visuals, posters, and digital content.</li>
+                <li>📊 <strong>Data & ICT:</strong> Working with technology, cybersecurity, and training.</li>
+                <li>🛠️ <strong>Problem-Solving:</strong> Finding solutions for technical and operational challenges.</li>
             </ul>
         </div>
     </section>
