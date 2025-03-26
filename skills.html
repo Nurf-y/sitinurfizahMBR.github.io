@@ -5,40 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills & Certificates | SITINURFIZAH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;700&family=Dancing+Script:wght@700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
+        /* Cyberpunk Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Orbitron', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            background: radial-gradient(circle, #0f0f0f, #1a1a1a);
+            color: #0ff;
             line-height: 1.6;
             overflow-x: hidden;
             animation: fadeIn 1s ease-in-out;
         }
 
+        /* Neon Glow */
+        .neon-text {
+            text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f;
+        }
+
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
+            background: linear-gradient(135deg, #111, #222);
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+            border-bottom: 3px solid #0ff;
         }
 
         header h1 {
-            font-family: 'Comic Neue', cursive;
-            font-size: 4rem;
+            font-size: 3.5rem;
+            color: #0ff;
             letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: float 3s ease-in-out infinite;
+            animation: glitch 1.5s infinite alternate;
+        }
+
+        /* Glitch Effect */
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 5px #0ff, -2px -2px 5px #ff00ff; }
+            50% { text-shadow: -2px -2px 5px #ff00ff, 2px 2px 5px #0ff; }
+            100% { text-shadow: 2px -2px 5px #0ff, -2px 2px 5px #ff00ff; }
         }
 
         nav ul {
@@ -51,144 +61,79 @@
         }
 
         nav a {
-            color: white;
+            color: #0ff;
             text-decoration: none;
             padding: 0.5rem 1rem;
-            border-radius: 25px;
+            border-radius: 5px;
             transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         nav a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            border: 1px solid #0ff;
+            text-shadow: 0 0 10px #0ff;
         }
 
         /* Section Styles */
         section {
             padding: 4rem 2rem;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         h2 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-            color: #2c3e50;
-            margin-bottom: 3rem;
+            font-size: 2.5rem;
             text-align: center;
-            position: relative;
-            display: inline-block;
-            padding: 0 2rem;
-            animation: colorShift 5s infinite alternate;
+            color: #ff00ff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px #ff00ff;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #3498db;
-            border-radius: 2px;
-        }
-
-        /* Content Bubbles */
+        /* Cyberpunk Content Box */
         .content-box {
-            background: white;
-            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
             padding: 2rem;
             margin: 2rem 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            animation: slideIn 0.8s ease-out forwards;
+            box-shadow: 0 0 15px #0ff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .content-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 0 25px #0ff;
         }
 
-        /* Emoji Bullet Points */
-        .emoji-bullet {
-            font-size: 1.2rem;
+        /* Neon Bullet Points */
+        .neon-bullet {
+            font-size: 1.3rem;
             margin-right: 10px;
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff;
         }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes colorShift {
-            0% { color: #2c3e50; }
-            50% { color: #3498db; }
-            100% { color: #e74c3c; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Cat Animation */
-        .cat-emoji {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 3rem;
-            animation: bounce 2s infinite, spin 4s infinite linear;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        /* Smiley Animation */
-        .smiley-float {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.2;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .smiley-float:nth-child(1) { left: 10%; top: 20%; }
-        .smiley-float:nth-child(2) { right: 15%; top: 40%; }
-        .smiley-float:nth-child(3) { left: 30%; bottom: 20%; }
 
         /* Footer Styles */
         footer {
             text-align: center;
             padding: 1rem;
-            background: #2c3e50;
-            color: white;
+            background: #111;
+            border-top: 3px solid #0ff;
+            color: #0ff;
             margin-top: 2rem;
         }
+
+        footer a {
+            color: #ff00ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
     </style>
 </head>
 <body>
-    <!-- Cat Animation -->
-    <div class="cat-emoji">🐈</div>
-    <div class="smiley-float">💡</div>
-    <div class="smiley-float">📜</div>
-    <div class="smiley-float">🌟</div>
-
     <!-- Navigation Bar -->
     <header>
         <h1>Skills & Certificates</h1>
@@ -209,14 +154,14 @@
         <h2>Skills</h2>
         <div class="content-box">
             <ul>
-                <li><span class="emoji-bullet">📦</span> Logistics & Supply Chain Management</li>
-                <li><span class="emoji-bullet">🎉</span> Event Planning & Coordination</li>
-                <li><span class="emoji-bullet">🎨</span> Marketing & Graphic Design</li>
-                <li><span class="emoji-bullet">📞</span> Customer Service & Communication</li>
-                <li><span class="emoji-bullet">💻</span> Technical & Media Management</li>
-                <li><span class="emoji-bullet">📊</span> Data Research & Analysis</li>
-                <li><span class="emoji-bullet">🔒</span> Basic Cybersecurity Knowledge</li>
-                <li><span class="emoji-bullet">🌐</span> Languages: Malay, English, Basic Chinese</li>
+                <li><span class="neon-bullet">🚀</span> Logistics & Supply Chain Management</li>
+                <li><span class="neon-bullet">⚡</span> Event Planning & Coordination</li>
+                <li><span class="neon-bullet">🎨</span> Marketing & Graphic Design</li>
+                <li><span class="neon-bullet">📞</span> Customer Service & Communication</li>
+                <li><span class="neon-bullet">🖥️</span> Technical & Media Management</li>
+                <li><span class="neon-bullet">📊</span> Data Research & Analysis</li>
+                <li><span class="neon-bullet">🔒</span> Basic Cybersecurity Knowledge</li>
+                <li><span class="neon-bullet">🌐</span> Languages: Malay, English, Basic Chinese</li>
             </ul>
         </div>
     </section>
@@ -226,15 +171,11 @@
         <h2>Certificates</h2>
         <div class="content-box">
             <ul>
-                <li><span class="emoji-bullet">📜</span> Microsoft Office Suite (Intermediate Level)</li>
-                <li><span class="emoji-bullet">📜</span> Google Workspace (Intermediate Level)</li>
-                <li><span class="emoji-bullet">📜</span> Basic Cybersecurity Training (PeopleLogy, 2024)</li>
-                <li><span class="emoji-bullet">📜</span> Social Media Marketing & Paid Advertising (TikTok & Facebook)</li>
-                <li><span class="emoji-bullet">📜</span> Microsoft Excel: Tips & Tricks (Enhanced data management & reporting efficiency)</li>
-                <li><span class="emoji-bullet">📜</span> Web Design & Canva Training (Designed marketing materials for events and sales)</li>
-                <li><span class="emoji-bullet">📜</span> Quality Service Culture Training (CRM Training)</li>
-                <ul>
-    
+                <li><span class="neon-bullet">📜</span> Microsoft Office Suite (Intermediate Level)</li>
+                <li><span class="neon-bullet">📜</span> Google Workspace (Intermediate Level)</li>
+                <li><span class="neon-bullet">📜</span> Basic Cybersecurity Training (PeopleLogy, 2024)</li>
+                <li><span class="neon-bullet">📜</span> Social Media Marketing & Paid Advertising (TikTok & Facebook)</li>
+                <li><span class="neon-bullet">📜</span> Microsoft Excel: Advanced Data Management</li>
             </ul>
         </div>
     </section>
