@@ -1,151 +1,735 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="skills.html"class="active">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="education.html">Education</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-</nav>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <title>Skills | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
 
-    <meta charset="UTF-8">
-    <title>Fizah | Skills</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Collapsible button style */
-        .collapsible {
-            background-color: #f9f9f9;
-            color: #222;
-            cursor: pointer;
-            padding: 12px 18px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
             width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: left;
-            font-size: 15px;
-            outline: none;
-            transition: background-color 0.2s ease;
-            margin-bottom: 8px;
         }
 
-        .collapsible:hover {
-            background-color: #f1f1f1;
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-        .content {
-            padding: 0 18px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.25s ease-out;
-            background-color: #fafafa;
-            border-left: 3px solid #0073e6;
-            margin-bottom: 10px;
+        .main-wrapper {
+            min-height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
         }
 
-        .content p {
-            margin: 10px 0;
-            font-size: 14px;
+        /* Navigation Styles */
+        .top-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
         }
 
-        .back-link {
-            font-size: 14px;
-            color: #0073e6;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .top-nav a {
+            color: #6c757d;
             text-decoration: none;
-            transition: color 0.2s;
+            padding: 18px 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.3px;
         }
 
-        .back-link:hover {
-            color: #005bb5;
-            text-decoration: underline;
+        .top-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .top-nav a:hover {
+            color: #667eea;
+        }
+
+        .top-nav a:hover::after {
+            width: 70%;
+        }
+
+        .top-nav .active {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .top-nav .active::after {
+            width: 70%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 80px;
+            flex: 1;
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .skills-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .skills-card:hover {
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-category {
+            margin-bottom: 60px;
+        }
+
+        .skill-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid;
+            border-image: linear-gradient(90deg, #667eea, #764ba2) 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-badge {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 28px 20px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .tool-badge:hover::before {
+            opacity: 1;
+        }
+
+        .tool-badge:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+            border-color: transparent;
+        }
+
+        .tool-badge i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-badge:hover i {
+            background: #fff;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.15) rotateY(360deg);
+        }
+
+        .tool-badge span {
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            color: #495057;
+            transition: color 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tool-badge:hover span {
+            color: #fff;
+        }
+
+        .skill-item {
+            position: relative;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transform: translateX(5px);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-name::before {
+            content: '⭐';
+            font-size: 1.2rem;
+        }
+
+        .skill-percentage {
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+        }
+
+        .skill-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-item.animate .skill-bar-fill {
+            width: var(--skill-width);
+        }
+
+        /* Description Section */
+        .skills-description {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+            padding: 35px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border-left: 5px solid #667eea;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .skills-description p {
+            font-size: 1.1rem;
+            color: #495057;
+            line-height: 1.8;
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .skills-card {
+                padding: 35px 25px;
+            }
+
+            .category-title {
+                font-size: 1.4rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .tool-badge {
+                padding: 20px 16px;
+            }
+
+            .tool-badge i {
+                font-size: 2rem;
+            }
+
+            .tool-badge span {
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 40px 15px 60px;
+            }
+
+            .skill-category {
+                margin-bottom: 45px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .top-nav a {
+                padding: 14px 12px;
+                font-size: 0.85rem;
+            }
+
+            .skills-card {
+                padding: 25px 20px;
+            }
+
+            .category-title {
+                font-size: 1.2rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #667eea;
+            color: white;
         }
     </style>
-</head>
-<body>
-
-    <main class="container">
-
-        <header class="profile-header">
-            <h1>Skills at a Glance</h1>
-            <p class="profile-title">Administrative Professional | Fresh Graduate</p>
-        </header>
-
-        <section class="section">
-
-            <div class="skill">
-                <button class="collapsible">Reliability, Accountability, and Minimal Supervision</button>
-                <div class="content">
-                    <p>Consistently completes tasks with minimal guidance, ensuring responsibilities are handled reliably and efficiently.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Operations, Administration, and Coordination</button>
-                <div class="content">
-                    <p>Experience supporting smooth operations, handling administrative tasks, and coordinating team workflows effectively.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Customer Service & Frontline Handling</button>
-                <div class="content">
-                    <p>Provided direct support to customers, ensuring professionalism, responsiveness, and clear communication in frontline roles.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Logistics, Stock Support, and Process Work</button>
-                <div class="content">
-                    <p>Assisted in inventory management, stock tracking, and process-based operations to maintain efficiency and accuracy.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Microsoft Office, Google Workspace, and Canva</button>
-                <div class="content">
-                    <p>Proficient in office software and tools to create documents, reports, presentations, and simple design outputs efficiently.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Technical Support & Online Event Coordination</button>
-                <div class="content">
-                    <p>Provided technical support and assisted with online events, ensuring smooth digital workflows and participant guidance.</p>
-                </div>
-            </div>
-
-            <div class="skill">
-                <button class="collapsible">Research, Documentation, and Data Awareness</button>
-                <div class="content">
-                    <p>Supports research activities, maintains accurate documentation, and has awareness of basic data handling and reporting.</p>
-                </div>
-            </div>
-
-        </section>
-
-        <footer class="section">
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </footer>
-
-    </main>
-
-    <script>
-        const collapsibles = document.querySelectorAll(".collapsible");
-
-        collapsibles.forEach((button) => {
-            button.addEventListener("click", () => {
-                button.classList.toggle("active");
-                const content = button.nextElementSibling;
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="main-wrapper"><!-- Top Navigation -->
+   <nav class="top-nav">
+    <div class="nav-container"><a href="index.html">Home</a> <a href="skills.html" class="active">Skills</a> <a href="experience.html">Experience</a> <a href="education.html">Education</a> <a href="projects.html">Projects</a> <a href="contact.html">Contact</a>
+    </div>
+   </nav><!-- Main Container -->
+   <main class="container"><!-- Page Header -->
+    <header class="page-header">
+     <h1 id="page-title">Skills &amp; Competencies</h1>
+     <p id="page-subtitle">My Professional &amp; Technical Expertise</p>
+    </header><!-- Description -->
+    <div class="skills-description">
+     <p><strong>Strong verbal &amp; written communication abilities</strong> combined with <strong>excellent time management &amp; task coordination</strong>. Proficient in <strong>problem-solving &amp; critical thinking</strong>, capable of working in collaborative &amp; fast-paced environments.</p>
+    </div><!-- Skills Section -->
+    <section class="skills-section">
+     <div class="skills-card"><!-- Core Skills -->
+      <div class="skill-category">
+       <h3 class="category-title"><span class="category-icon">💼</span> <span id="core-section-title">Core Professional Skills</span></h3>
+       <div class="skills-grid">
+        <div class="skill-item">
+         <div class="skill-header"><span class="skill-name">Communication Skills</span> <span class="skill-percentage">95%</span>
+         </div>
+         <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-width: 95%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="skill-header"><span class="skill-name">Organizational Skills</span> <span class="skill-percentage">93%</span>
+         </div>
+         <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-width: 93%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="skill-header"><span class="skill-name">Analytical Skills</span> <span class="skill-percentage">90%</span>
+         </div>
+         <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-width: 90%"></div>
+         </div>
+        </div>
+        <div class="skill-item">
+         <div class="skill-header"><span class="skill-name">Teamwork</span> <span class="skill-percentage">92%</span>
+         </div>
+         <div class="skill-bar-bg">
+          <div class="skill-bar-fill" style="--skill-width: 92%"></div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Digital Tools -->
+      <div class="skill-category">
+       <h3 class="category-title"><span class="category-icon">💻</span> <span id="tools-section-title">Digital &amp; Technical Skills</span></h3>
+       <div class="tools-grid">
+        <div class="tool-badge"><i class="fas fa-file-word"></i> <span>Microsoft Office</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-google"></i> <span>Google Workspace</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-facebook"></i> <span>Meta Business Suite</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-palette"></i> <span>Canva</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-video"></i> <span>CapCut</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-adobe"></i> <span>Adobe Photoshop</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-adobe"></i> <span>Adobe Illustrator</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-figma"></i> <span>Figma</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-wordpress"></i> <span>WordPress</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-wix"></i> <span>Wix</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-globe"></i> <span>Google Sites</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-chart-line"></i> <span>Google Data Studio</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-database"></i> <span>SPSS</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-chart-bar"></i> <span>Power BI</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-film"></i> <span>DaVinci Resolve</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-tiktok"></i> <span>TikTok Ads Manager</span>
+        </div>
+        <div class="tool-badge"><i class="fab fa-facebook"></i> <span>Facebook Ads Manager</span>
+        </div>
+        <div class="tool-badge"><i class="fas fa-shield-alt"></i> <span>Kali Linux</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main>
+  </div>
+  <script>
+        // Animate skill bars on load
+        function animateSkills() {
+            const skillItems = document.querySelectorAll('.skill-item');
+            skillItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, index * 150);
             });
-        });
-    </script>
+        }
 
-</body>
+        // Run animation after page loads
+        setTimeout(animateSkills, 500);
+
+        // Initialize Element SDK
+        const defaultConfig = {
+            background_gradient_start: "#667eea",
+            background_gradient_end: "#764ba2",
+            card_background: "#ffffff",
+            text_color: "#2c3e50",
+            accent_color: "#667eea",
+            font_family: "Poppins",
+            font_size: 16,
+            page_title: "Skills & Competencies",
+            page_subtitle: "My Professional & Technical Expertise",
+            core_section_title: "Core Professional Skills",
+            tools_section_title: "Digital & Technical Skills"
+        };
+
+        async function onConfigChange(config) {
+            const bgStart = config.background_gradient_start || defaultConfig.background_gradient_start;
+            const bgEnd = config.background_gradient_end || defaultConfig.background_gradient_end;
+            const cardBg = config.card_background || defaultConfig.card_background;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const accentColor = config.accent_color || defaultConfig.accent_color;
+            const fontFamily = config.font_family || defaultConfig.font_family;
+            const baseFontSize = config.font_size || defaultConfig.font_size;
+
+            // Update background
+            document.body.style.background = `linear-gradient(135deg, ${bgStart} 0%, ${bgEnd} 100%)`;
+            document.body.style.fontFamily = `${fontFamily}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            document.body.style.color = textColor;
+
+            // Update card
+            const card = document.querySelector('.skills-card');
+            if (card) {
+                card.style.background = cardBg;
+            }
+
+            // Update text content
+            const pageTitle = document.getElementById('page-title');
+            if (pageTitle) {
+                pageTitle.textContent = config.page_title || defaultConfig.page_title;
+            }
+
+            const pageSubtitle = document.getElementById('page-subtitle');
+            if (pageSubtitle) {
+                pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+            }
+
+            const coreTitle = document.getElementById('core-section-title');
+            if (coreTitle) {
+                coreTitle.textContent = config.core_section_title || defaultConfig.core_section_title;
+            }
+
+            const toolsTitle = document.getElementById('tools-section-title');
+            if (toolsTitle) {
+                toolsTitle.textContent = config.tools_section_title || defaultConfig.tools_section_title;
+            }
+
+            // Update text colors
+            const allText = document.querySelectorAll('.skill-name, .category-title');
+            allText.forEach(text => {
+                text.style.color = textColor;
+            });
+
+            // Update font sizes
+            document.querySelector('.page-header h1').style.fontSize = `${baseFontSize * 3}px`;
+            document.querySelector('.page-header p').style.fontSize = `${baseFontSize * 1.3}px`;
+            document.querySelectorAll('.category-title').forEach(title => {
+                title.style.fontSize = `${baseFontSize * 1.8}px`;
+            });
+
+            // Update dynamic styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .top-nav a:hover { color: ${accentColor} !important; }
+                .top-nav a::after { background: linear-gradient(90deg, ${accentColor}, ${accentColor}dd) !important; }
+                .skill-bar-fill { background: linear-gradient(90deg, ${accentColor}, ${accentColor}dd) !important; }
+                .skill-percentage { background: linear-gradient(135deg, ${accentColor}, ${accentColor}dd) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+                .category-icon { background: linear-gradient(135deg, ${accentColor}, ${accentColor}dd) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+                .tool-badge i { background: linear-gradient(135deg, ${accentColor}, ${accentColor}dd) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; background-clip: text !important; }
+                .tool-badge::before { background: linear-gradient(135deg, ${accentColor}, ${accentColor}dd) !important; }
+                .category-title { border-image: linear-gradient(90deg, ${accentColor}, ${accentColor}dd) 1 !important; }
+            `;
+            const oldStyle = document.querySelector('style[data-dynamic]');
+            if (oldStyle) oldStyle.remove();
+            style.setAttribute('data-dynamic', 'true');
+            document.head.appendChild(style);
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+                        set: (value) => {
+                            config.background_gradient_start = value;
+                            window.elementSdk.setConfig({ background_gradient_start: value });
+                        }
+                    },
+                    {
+                        get: () => config.card_background || defaultConfig.card_background,
+                        set: (value) => {
+                            config.card_background = value;
+                            window.elementSdk.setConfig({ card_background: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => {
+                            config.accent_color = value;
+                            window.elementSdk.setConfig({ accent_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["page_title", config.page_title || defaultConfig.page_title],
+                ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                ["core_section_title", config.core_section_title || defaultConfig.core_section_title],
+                ["tools_section_title", config.tools_section_title || defaultConfig.tools_section_title]
+            ]);
+        }
+
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af360acd11fdb1e',t:'MTc2NTk0MjYwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
