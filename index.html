@@ -1,46 +1,65 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
- <nav class="top-nav">
-    <a href="index.html"class="active">Home</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="education.html">Education</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
     <meta charset="UTF-8">
     <title>Fizah | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for nice typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="skills.html">Skills</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <!-- Main Container -->
     <main class="container">
+
+        <!-- Profile Header -->
         <header class="profile-header">
-            <h1>SITINURFIZAH BINTI MICHAEL BEATTY@RIPIN</h1>
+            <h1 class="profile-name">SITINURFIZAH BINTI MICHAEL BEATTY@RIPIN</h1>
             <p class="profile-title">It's Great To Connect With You</p>
         </header>
 
+        <!-- About Me Section -->
+        <section class="about-me" data-aos="fade-up">
+            <div class="about-card">
+                <h2>Get to Know Me</h2>
+                <p class="about-text">
+                    I’m someone who enjoys working with structure while staying flexible when things change.
+                    I pick things up quickly, stay organized, and can be relied on to follow through on what
+                    needs to be done. I care about doing things accurately and efficiently, whether I’m
+                    working on my own or collaborating with a team.
+                </p>
+                <p class="about-text">
+                    I’ve had experience across customer service, logistics, technical support, and media
+                    coordination. In these roles, I supported daily operations, managed documentation, and
+                    helped teams keep workflows running smoothly. I’m comfortable working under pressure and
+                    prefer to focus on practical, clear solutions when challenges come up.
+                </p>
+                <p class="about-text">
+                    I’m looking for a space where I can contribute steadily, keep learning new skills, and
+                    add value through consistent and dependable work.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+
 </body>
 </html>
-<section class="section">
-    <h2>Get to Know Me</h2>
-    <p>
-        I’m someone who enjoys working with structure while staying flexible when things change.
-        I pick things up quickly, stay organized, and can be relied on to follow through on what
-        needs to be done. I care about doing things accurately and efficiently, whether I’m
-        working on my own or collaborating with a team.
-    </p>
-    <p>
-        I’ve had experience across customer service, logistics, technical support, and media
-        coordination. In these roles, I supported daily operations, managed documentation, and
-        helped teams keep workflows running smoothly. I’m comfortable working under pressure and
-        prefer to focus on practical, clear solutions when challenges come up.
-    </p>
-    <p>
-        I’m looking for a space where I can contribute steadily, keep learning new skills, and
-        add value through consistent and dependable work.
-    </p>
-</section>
