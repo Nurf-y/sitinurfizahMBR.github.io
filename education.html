@@ -1,68 +1,502 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="education.html" class="active">Education</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-</nav
-    <meta charset="UTF-8">
-    <title>Fizah | Education</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Education</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px) rotate(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        
+        @keyframes flowingWater {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes chasingLights {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+        
+        @keyframes chasingLightsReverse {
+            0% {
+                background-position: 200% 200%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+        
+        .education-card {
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        
+        .education-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.8) 35%,
+                rgba(255, 255, 255, 0.9) 40%,
+                transparent 45%,
+                transparent 55%,
+                rgba(255, 255, 255, 0.8) 60%,
+                rgba(255, 255, 255, 0.9) 65%,
+                transparent 70%
+            );
+            background-size: 200% 200%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .card-purple {
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #e9d5ff 40%,
+                #ffffff 60%,
+                #ddd6fe 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .card-purple::after {
+            animation: chasingLights 3s linear infinite;
+        }
+        
+        .card-pink {
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #fce7f3 40%,
+                #ffffff 60%,
+                #fbcfe8 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .card-pink::after {
+            animation: chasingLightsReverse 3s linear infinite;
+        }
+        
+        .card-blue {
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #dbeafe 40%,
+                #ffffff 60%,
+                #bfdbfe 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .card-blue::after {
+            animation: chasingLights 3s linear infinite;
+        }
+        
+        .card-green {
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #d1fae5 40%,
+                #ffffff 60%,
+                #a7f3d0 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .card-green::after {
+            animation: chasingLightsReverse 3s linear infinite;
+        }
+        
+        .education-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .education-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .education-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .education-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        .education-card:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-12px) scale(1.03);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, 
+                #8b5cf6 0%, 
+                #a78bfa 20%, 
+                #c4b5fd 40%, 
+                #a78bfa 60%, 
+                #8b5cf6 80%, 
+                #7c3aed 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .badge-bachelor {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .badge-stpm {
+            background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+            color: white;
+        }
+        
+        .badge-spm {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+        
+        .badge-muet {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="margin: 0; padding: 0;">
+  <div class="w-full h-full gradient-bg"><!-- Navigation -->
+   <nav id="navigation" class="w-full" style="padding: 1rem 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+     <div class="flex flex-wrap gap-6 justify-center"><a href="index.html" class="nav-link font-medium" style="text-decoration: none;">Home</a> <a href="skills.html" class="nav-link font-medium" style="text-decoration: none;">Skills</a> <a href="experience.html" class="nav-link font-medium" style="text-decoration: none;">Experience</a> <a href="education.html" class="nav-link active font-medium" style="text-decoration: none;">Education</a> <a href="projects.html" class="nav-link font-medium" style="text-decoration: none;">Projects</a> <a href="contact.html" class="nav-link font-medium" style="text-decoration: none;">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;"><!-- Header -->
+    <header class="text-center" style="margin-bottom: 4rem;">
+     <h1 id="pageTitle" class="font-bold" style="margin-bottom: 1rem; color: white; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.1); animation: float 3s ease-in-out infinite;">Education</h1>
+     <p id="pageSubtitle" class="text-lg" style="color: white; opacity: 0.95;">Administrative Professional | Fresh Graduate</p>
+    </header><!-- Education Grid -->
+    <div class="space-y-8"><!-- Bachelor Degree -->
+     <div class="education-card card-purple" style="padding: 3rem; box-shadow: 0 10px 40px rgba(139, 92, 246, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       🎓
+      </div><span class="badge badge-bachelor" style="margin-bottom: 1.5rem;">🎓 Bachelor's Degree</span>
+      <h3 id="bachelor_program" class="font-bold" style="margin-top: 1rem; margin-bottom: 1rem; color: #000000; font-size: 1.8rem;">Entrepreneurship (Logistics &amp; Distribution Trade)</h3>
+      <p id="bachelor_university" class="font-semibold" style="color: #374151; margin-bottom: 0.5rem; font-size: 1.1rem;">Universiti Malaysia Kelantan (UMK) – Kota Bharu, Kelantan</p>
+      <p id="bachelor_duration" style="color: #6b7280; font-weight: 600; margin-bottom: 1.5rem;">📅 2020 – 2024</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 1.5rem; color: #1e293b;">
+       <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #8b5cf6; font-weight: bold;">✦</span> GPA: 3.39 (Dean's List – Semester 5, 6 &amp; 7)</li>
+       <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #8b5cf6; font-weight: bold;">✦</span> 2nd Place in Business Portfolio Entrepreneurship Program</li>
+       <li style="margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative;"><span style="position: absolute; left: 0; color: #8b5cf6; font-weight: bold;">✦</span> Related Courses: Digital Marketing, Branding &amp; Advertising, Market Research, Graphic Design, Web Design, E-Commerce &amp; Online Business Management</li>
+      </ul>
+     </div><!-- STPM -->
+     <div class="education-card card-pink" style="padding: 3rem; box-shadow: 0 10px 40px rgba(236, 72, 153, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       📚
+      </div><span class="badge badge-stpm" style="margin-bottom: 1.5rem;">📚 STPM</span>
+      <h3 id="stpm_school" class="font-bold" style="margin-top: 1rem; margin-bottom: 1rem; color: #000000; font-size: 1.8rem;">Sekolah Menengah Kebangsaan Sook</h3>
+      <p id="stpm_duration" style="color: #6b7280; font-weight: 600; margin-bottom: 1rem;">📅 2018 – 2019</p>
+      <p style="color: #1e293b;"><strong>Subjects:</strong> Pengurusan Perniagaan, Sejarah</p>
+     </div><!-- SPM -->
+     <div class="education-card card-blue" style="padding: 3rem; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       📖
+      </div><span class="badge badge-spm" style="margin-bottom: 1.5rem;">📖 SPM</span>
+      <h3 id="spm_school" class="font-bold" style="margin-top: 1rem; margin-bottom: 1rem; color: #000000; font-size: 1.8rem;">Sekolah Menengah Kebangsaan Sook</h3>
+      <p id="spm_year" style="color: #6b7280; font-weight: 600; margin-bottom: 1rem;">📅 2017</p>
+      <p style="color: #1e293b;"><strong>Subjects:</strong> Accounting, Perdagangan</p>
+     </div><!-- MUET -->
+     <div class="education-card card-green" style="padding: 3rem; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       🌟
+      </div><span class="badge badge-muet" style="margin-bottom: 1.5rem;">🌟 MUET</span>
+      <h3 class="font-bold" style="margin-top: 1rem; margin-bottom: 1rem; color: #000000; font-size: 1.8rem;">Band 4</h3>
+      <p style="color: #1e293b;">Malaysian University English Test</p>
+     </div>
+    </div><!-- Footer -->
+    <footer style="margin-top: 3rem; text-align: center;"><a href="index.html" style="color: white; text-decoration: none; font-size: 1.1rem; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.2); border-radius: 50px; display: inline-block; transition: all 0.3s ease; backdrop-filter: blur(10px);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'">← Back to Home</a>
+    </footer>
+   </main>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_gradient_start: "#8b5cf6",
+            background_gradient_end: "#c4b5fd",
+            nav_background: "#ffffff",
+            text_color: "#7c3aed",
+            primary_accent: "#7c3aed",
+            card_text: "#1e293b",
+            font_family: "Poppins",
+            font_size: 16,
+            page_title: "Education",
+            page_subtitle: "Administrative Professional | Fresh Graduate",
+            bachelor_program: "Entrepreneurship (Logistics & Distribution Trade)",
+            bachelor_university: "Universiti Malaysia Kelantan (UMK) – Kota Bharu, Kelantan",
+            bachelor_duration: "2020 – 2024",
+            stpm_school: "Sekolah Menengah Kebangsaan Sook",
+            stpm_duration: "2018 – 2019",
+            spm_school: "Sekolah Menengah Kebangsaan Sook",
+            spm_year: "2017"
+        };
 
-    <main class="container">
+        async function onConfigChange(config) {
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const fontStack = `${customFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            
+            document.body.style.fontFamily = fontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const gradientBg = document.querySelector('.gradient-bg');
+            if (gradientBg) {
+                const gradientStart = config.background_gradient_start || defaultConfig.background_gradient_start;
+                const gradientEnd = config.background_gradient_end || defaultConfig.background_gradient_end;
+                gradientBg.style.background = `linear-gradient(135deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
+            }
+            
+            const nav = document.getElementById('navigation');
+            nav.style.backgroundColor = config.nav_background || defaultConfig.nav_background;
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.style.color = config.text_color || defaultConfig.text_color;
+                link.style.fontSize = `${baseSize}px`;
+            });
+            
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                activeLink.style.color = config.primary_accent || defaultConfig.primary_accent;
+            }
+            
+            const existingStyle = document.getElementById('dynamic-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            const style = document.createElement('style');
+            style.id = 'dynamic-styles';
+            style.textContent = `
+                .nav-link::after {
+                    background-color: ${config.primary_accent || defaultConfig.primary_accent};
+                }
+            `;
+            document.head.appendChild(style);
+            
+            const pageTitle = document.getElementById('pageTitle');
+            pageTitle.textContent = config.page_title || defaultConfig.page_title;
+            pageTitle.style.fontSize = `${baseSize * 2.5}px`;
+            pageTitle.style.color = 'white';
+            
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+            pageSubtitle.style.fontSize = `${baseSize * 1.125}px`;
+            pageSubtitle.style.color = 'white';
+            
+            document.getElementById('bachelor_program').textContent = config.bachelor_program || defaultConfig.bachelor_program;
+            document.getElementById('bachelor_university').textContent = config.bachelor_university || defaultConfig.bachelor_university;
+            document.getElementById('bachelor_duration').textContent = "📅 " + (config.bachelor_duration || defaultConfig.bachelor_duration);
+            
+            document.getElementById('stpm_school').textContent = config.stpm_school || defaultConfig.stpm_school;
+            document.getElementById('stpm_duration').textContent = "📅 " + (config.stpm_duration || defaultConfig.stpm_duration);
+            
+            document.getElementById('spm_school').textContent = config.spm_school || defaultConfig.spm_school;
+            document.getElementById('spm_year').textContent = "📅 " + (config.spm_year || defaultConfig.spm_year);
+        }
 
-        <header class="profile-header">
-            <h1>Education</h1>
-            <p class="profile-title">Administrative Professional | Fresh Graduate</p>
-        </header>
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+                            set: (value) => {
+                                config.background_gradient_start = value;
+                                window.elementSdk.setConfig({ background_gradient_start: value });
+                            }
+                        },
+                        {
+                            get: () => config.nav_background || defaultConfig.nav_background,
+                            set: (value) => {
+                                config.nav_background = value;
+                                window.elementSdk.setConfig({ nav_background: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_accent || defaultConfig.primary_accent,
+                            set: (value) => {
+                                config.primary_accent = value;
+                                window.elementSdk.setConfig({ primary_accent: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_text || defaultConfig.card_text,
+                            set: (value) => {
+                                config.card_text = value;
+                                window.elementSdk.setConfig({ card_text: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["bachelor_program", config.bachelor_program || defaultConfig.bachelor_program],
+                    ["bachelor_university", config.bachelor_university || defaultConfig.bachelor_university],
+                    ["bachelor_duration", config.bachelor_duration || defaultConfig.bachelor_duration],
+                    ["stpm_school", config.stpm_school || defaultConfig.stpm_school],
+                    ["stpm_duration", config.stpm_duration || defaultConfig.stpm_duration],
+                    ["spm_school", config.spm_school || defaultConfig.spm_school],
+                    ["spm_year", config.spm_year || defaultConfig.spm_year]
+                ])
+            });
+        }
 
-        <!-- Bachelor Degree -->
-        <section class="section">
-            <h2>Bachelor’s Degree</h2>
-            <p><strong>Program:</strong> Entrepreneurship (Logistics & Distribution Trade)</p>
-            <p><strong>University:</strong> Universiti Malaysia Kelantan (UMK) – Kota Bharu, Kelantan</p>
-            <p><strong>Duration:</strong> 2020 – 2024</p>
-            <ul>
-                <li>GPA: 3.39 (Dean’s List – Semester 5, 6 & 7)</li>
-                <li>2nd Place in Business Portfolio Entrepreneurship Program</li>
-                <li>Related Courses: Digital Marketing, Branding & Advertising, Market Research, Graphic Design, Web Design, E-Commerce & Online Business Management</li>
-            </ul>
-        </section>
+        async function initApp() {
+            if (window.elementSdk) {
+                await onConfigChange(window.elementSdk.config || defaultConfig);
+            } else {
+                await onConfigChange(defaultConfig);
+            }
+        }
 
-        <!-- STPM -->
-        <section class="section">
-            <h2>STPM</h2>
-            <p><strong>School:</strong> Sekolah Menengah Kebangsaan Sook</p>
-            <p><strong>Duration:</strong> 2018 – 2019</p>
-            <p><strong>Subjects:</strong> Pengurusan Perniagaan, Sejarah</p>
-        </section>
-
-        <!-- SPM -->
-        <section class="section">
-            <h2>SPM</h2>
-            <p><strong>School:</strong> Sekolah Menengah Kebangsaan Sook</p>
-            <p><strong>Year:</strong> 2027</p>
-            <p><strong>Subjects:</strong> Accounting, Perdagangan</p>
-        </section>
-
-        <!-- MUET -->
-        <section class="section">
-            <h2>MUET</h2>
-            <p><strong>Band:</strong> 4</p>
-        </section>
-
-        <footer class="section">
-            <a href="index.html" class="back-link">← Back to Home</a>
-        </footer>
-
-    </main>
-
-</body>
+        initApp();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af4a1265549b995',t:'MTc2NTk1NTcyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
