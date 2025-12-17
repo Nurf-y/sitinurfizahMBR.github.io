@@ -1,130 +1,550 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="education.html">Education</a>
-    <a href="projects.html"class="active">Projects</a>
-    <a href="contact.html">Contact</a>
-</nav>
-
-    <meta charset="UTF-8">
-    <title>Fizah | Projects & Leadership</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects &amp; Leadership</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
         .project-card {
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 15px;
-            background-color: #fafafa;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white !important;
+            border-radius: 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
-
-        .project-title {
-            font-size: 16px;
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .project-card:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        
+        .project-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.4);
+        }
+        
+        .project-card:hover .badge {
+            transform: scale(1.1);
+            background: #7c3aed !important;
+            color: white !important;
+        }
+        
+        .project-card:hover .image-placeholder {
+            transform: rotate(5deg) scale(1.1);
+            border-color: #7c3aed;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.01) 100%);
+            border: 2px dashed rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: rgba(0,0,0,0.4);
+            border-radius: 8px;
+            min-height: 120px;
+            width: 120px;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            border-color: rgba(0,0,0,0.25);
+            background: linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.02) 100%);
+        }
+        
+        .text-justified {
+            text-align: justify;
+        }
+        
+        .bullet-point {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .bullet-point::before {
+            content: '▪';
+            position: absolute;
+            left: 0;
             font-weight: bold;
-            margin-bottom: 5px;
         }
-
-        .project-duration {
-            font-size: 13px;
-            color: #555;
-            margin-bottom: 8px;
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
         }
-
-        .project-details {
-            font-size: 14px;
-            line-height: 1.5;
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
-</head>
-<body>
-
-<main class="container">
-
-    <header class="profile-header">
-        <h1>Projects & Leadership</h1>
-        <p class="profile-title">Portfolio Highlights, Leadership, & Volunteer Experience</p>
-    </header>
-
-    <!-- Leadership & Projects -->
-    <section class="section">
-        <h2>Leadership & Project Involvement</h2>
-
-        <div class="project-card">
-            <div class="project-title">Head of Technical & Media – Malaysia Day Poster Competition (Web Design Club)</div>
-            <div class="project-duration">2022</div>
-            <div class="project-details">
-                <ul>
-                    <li>Led technical and media operations for a nationwide competition with 55+ participants.</li>
-                    <li>Integrated background music, Google Forms, and video montages to create a seamless and engaging event experience.</li>
-                    <li>Oversaw end-to-end technical setup, ensuring smooth execution and participant satisfaction.</li>
-                </ul>
-            </div>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="margin: 0; padding: 0;">
+  <div class="w-full h-full gradient-bg"><!-- Navigation -->
+   <nav id="navigation" class="w-full" style="padding: 1rem 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+     <div class="flex flex-wrap gap-6 justify-center"><a href="index.html" class="nav-link font-medium" style="text-decoration: none;">Home</a> <a href="skills.html" class="nav-link font-medium" style="text-decoration: none;">Skills</a> <a href="experience.html" class="nav-link font-medium" style="text-decoration: none;">Experience</a> <a href="education.html" class="nav-link font-medium" style="text-decoration: none;">Education</a> <a href="projects.html" class="nav-link active font-medium" style="text-decoration: none;">Projects</a> <a href="contact.html" class="nav-link font-medium" style="text-decoration: none;">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;"><!-- Header -->
+    <header class="text-center" style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out;">
+     <h1 id="pageTitle" class="font-bold" style="margin-bottom: 1rem; color: white; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.1); animation: float 3s ease-in-out infinite;">Leadership &amp; Project Involvement</h1>
+     <p id="pageSubtitle" class="text-lg" style="color: white; opacity: 0.95;">Showcasing leadership and creative contributions across various initiatives</p>
+    </header><!-- Projects Grid -->
+    <div class="space-y-8"><!-- Project 1: Web Design Club -->
+     <div class="project-card rounded-2xl overflow-hidden" style="padding: 2.5rem; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);">
+      <div class="flex gap-4">
+       <div class="flex-1">
+        <div class="mb-4"><span class="badge" style="background: #f3e8ff; color: #7c3aed; margin-bottom: 0.75rem;">Leadership</span>
+         <h3 id="project1Title" class="font-bold" style="margin-top: 0.5rem; margin-bottom: 0.75rem; color: #7c3aed; font-size: 1.5rem;">Head of Technical &amp; Media</h3>
+         <p id="project1Org" style="color: #4b5563; margin-bottom: 0.5rem;">Malaysia Day Poster Competition (Web Design Club)</p>
+         <p id="project1Date" class="text-sm" style="color: #6b7280;">2022</p>
         </div>
-
-        <div class="project-card">
-            <div class="project-title">Media Committee Member – Volunteer Malaysia Club (VM Club)</div>
-            <div class="project-duration">2020 – 2023</div>
-            <div class="project-details">
-                <ul>
-                    <li>Produced 3 posters weekly for community programs and public announcements, ensuring timely communication.</li>
-                    <li>Created disaster awareness materials (flood & earthquake) under tight deadlines to ensure rapid information dissemination.</li>
-                    <li>Contributed creative content to strengthen club visibility and community engagement.</li>
-                </ul>
-            </div>
+        <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+         <p id="project1Desc">Oversaw end-to-end technical setup, seamlessly integrating background music, Google Forms, and video montages to enhance the event experience for 55+ participants nationwide.</p>
         </div>
-
-        <div class="project-card">
-            <div class="project-title">Event Committee Member – Madani Sales Carnival, Hari Raya Celebration & Iftar Ceremony (ANGKASA)</div>
-            <div class="project-duration">2024</div>
-            <div class="project-details">
-                <ul>
-                    <li>Designed banners, posters, and promotional content for corporate events, enhancing event branding.</li>
-                    <li>Served as emcee and assisted in distributing 100 hampers and 100 gift bags, ensuring smooth event flow.</li>
-                    <li>Supported event logistics and engagement, contributing to overall participant satisfaction and successful outcomes.</li>
-                </ul>
-            </div>
+       </div>
+       <div class="flex-shrink-0">
+        <div class="image-placeholder"><span>📸</span>
         </div>
-    </section>
-
-    <!-- Volunteer Work -->
-    <section class="section">
-        <h2>Volunteer Experience</h2>
-
-        <div class="project-card">
-            <div class="project-title">Lecture Assistant – Dr. Solomon Zaato, UMK</div>
-            <div class="project-duration">2024</div>
-            <div class="project-details">
-                <ul>
-                    <li>Developed research frameworks for five academic papers, analyzing 20+ scholarly sources daily to support research development.</li>
-                    <li>Organized reference materials and assisted in preparing research documentation efficiently.</li>
-                    <li>Supported academic progress by maintaining accuracy and timely delivery of research outputs.</li>
-                </ul>
-            </div>
+       </div>
+      </div>
+     </div><!-- Project 2: VM Club -->
+     <div class="project-card rounded-2xl overflow-hidden" style="padding: 2.5rem; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);">
+      <div class="flex gap-4">
+       <div class="flex-1">
+        <div class="mb-4"><span class="badge" style="background: #f3e8ff; color: #7c3aed; margin-bottom: 0.75rem;">Media</span>
+         <h3 id="project2Title" class="font-bold" style="margin-top: 0.5rem; margin-bottom: 0.75rem; color: #7c3aed; font-size: 1.5rem;">Media Committee Member</h3>
+         <p id="project2Org" style="color: #4b5563; margin-bottom: 0.5rem;">Volunteer Malaysia Club (VM Club)</p>
+         <p id="project2Date" class="text-sm" style="color: #6b7280;">2020 – 2023</p>
         </div>
-
-        <div class="project-card">
-            <div class="project-title">Flood Relief Volunteer – Volunteer Malaysia Club (VM Club), UMK</div>
-            <div class="project-duration">2022 – 2023</div>
-            <div class="project-details">
-                <ul>
-                    <li>Assisted in packaging and distributing essential supplies to flood victims.</li>
-                    <li>Supported post-disaster recovery efforts, contributing to community resilience and relief operations.</li>
-                    <li>Worked efficiently under time-sensitive conditions to ensure aid reached those in need promptly.</li>
-                </ul>
-            </div>
+        <div class="space-y-2">
+         <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+          <p id="project2Point1">Designed 3 posters per week for community programs and public announcements.</p>
+         </div>
+         <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+          <p id="project2Point2">Created disaster awareness posters (flood &amp; earthquake) under tight deadlines to ensure fast information dissemination.</p>
+         </div>
         </div>
-    </section>
+       </div>
+       <div class="flex-shrink-0">
+        <div class="image-placeholder"><span>📸</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Project 3: ANGKASA -->
+     <div class="project-card rounded-2xl overflow-hidden" style="padding: 2.5rem; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);">
+      <div class="flex gap-4">
+       <div class="flex-1">
+        <div class="mb-4"><span class="badge" style="background: #f3e8ff; color: #7c3aed; margin-bottom: 0.75rem;">Events</span>
+         <h3 id="project3Title" class="font-bold" style="margin-top: 0.5rem; margin-bottom: 0.75rem; color: #7c3aed; font-size: 1.5rem;">Event Committee Member</h3>
+         <p id="project3Org" style="color: #4b5563; margin-bottom: 0.5rem;">Madani Sales Carnival, Hari Raya Celebration &amp; Iftar Ceremony (ANGKASA)</p>
+         <p id="project3Date" class="text-sm" style="color: #6b7280;">2024</p>
+        </div>
+        <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+         <p id="project3Desc">Designed banners, posters, and promotional content for corporate events, acted as emcee, and assisted in distributing 100 hampers &amp; 100 gift bags.</p>
+        </div>
+       </div>
+       <div class="flex-shrink-0">
+        <div class="image-placeholder"><span>📸</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Volunteer Experience Section -->
+    <div style="margin-top: 5rem;">
+     <h2 class="font-bold text-center" style="margin-bottom: 3rem; color: #7c3aed; font-size: 2.25rem;">Volunteer Experience</h2>
+     <div class="space-y-8"><!-- Volunteer 1: Lecture Assistant -->
+      <div class="project-card rounded-2xl overflow-hidden" style="padding: 2.5rem; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);">
+       <div class="flex gap-4">
+        <div class="flex-1">
+         <div class="mb-4"><span class="badge" style="background: #f3e8ff; color: #7c3aed; margin-bottom: 0.75rem;">Research</span>
+          <h3 id="volunteer1Title" class="font-bold" style="margin-top: 0.5rem; margin-bottom: 0.75rem; color: #7c3aed; font-size: 1.5rem;">Lecture Assistant (Dr. Solomon Zaato)</h3>
+          <p id="volunteer1Org" style="color: #4b5563; margin-bottom: 0.5rem;">UMK</p>
+          <p id="volunteer1Date" class="text-sm" style="color: #6b7280;">2024</p>
+         </div>
+         <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+          <p id="volunteer1Desc">Developed research frameworks for five academic papers, analyzing 20+ scholarly sources daily to support research development.</p>
+         </div>
+        </div>
+        <div class="flex-shrink-0">
+         <div class="image-placeholder"><span>📸</span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Volunteer 2: Flood Relief -->
+      <div class="project-card rounded-2xl overflow-hidden" style="padding: 2.5rem; box-shadow: 0 8px 30px rgba(139, 92, 246, 0.15);">
+       <div class="flex gap-4">
+        <div class="flex-1">
+         <div class="mb-4"><span class="badge" style="background: #f3e8ff; color: #7c3aed; margin-bottom: 0.75rem;">Community Service</span>
+          <h3 id="volunteer2Title" class="font-bold" style="margin-top: 0.5rem; margin-bottom: 0.75rem; color: #7c3aed; font-size: 1.5rem;">Flood Relief Volunteer (VM Club)</h3>
+          <p id="volunteer2Org" style="color: #4b5563; margin-bottom: 0.5rem;">UMK</p>
+          <p id="volunteer2Date" class="text-sm" style="color: #6b7280;">2022 – 2023</p>
+         </div>
+         <div class="bullet-point text-justified" style="line-height: 1.8; color: #374151;">
+          <p id="volunteer2Desc">Assisted in packaging and distributing essential supplies to flood victims and supported post-disaster recovery efforts.</p>
+         </div>
+        </div>
+        <div class="flex-shrink-0">
+         <div class="image-placeholder"><span>📸</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_gradient_start: "#8b5cf6",
+            background_gradient_end: "#c4b5fd",
+            nav_background: "#ffffff",
+            text_color: "#7c3aed",
+            primary_accent: "#7c3aed",
+            card_text: "#374151",
+            font_family: "Poppins",
+            font_size: 16,
+            page_title: "Leadership & Project Involvement",
+            page_subtitle: "Showcasing leadership and creative contributions across various initiatives",
+            project_1_title: "Head of Technical & Media",
+            project_1_org: "Malaysia Day Poster Competition (Web Design Club)",
+            project_1_date: "2022",
+            project_1_desc: "Oversaw end-to-end technical setup, seamlessly integrating background music, Google Forms, and video montages to enhance the event experience for 55+ participants nationwide.",
+            project_2_title: "Media Committee Member",
+            project_2_org: "Volunteer Malaysia Club (VM Club)",
+            project_2_date: "2020 – 2023",
+            project_2_point_1: "Designed 3 posters per week for community programs and public announcements.",
+            project_2_point_2: "Created disaster awareness posters (flood & earthquake) under tight deadlines to ensure fast information dissemination.",
+            project_3_title: "Event Committee Member",
+            project_3_org: "Madani Sales Carnival, Hari Raya Celebration & Iftar Ceremony (ANGKASA)",
+            project_3_date: "2024",
+            project_3_desc: "Designed banners, posters, and promotional content for corporate events, acted as emcee, and assisted in distributing 100 hampers & 100 gift bags.",
+            volunteer_1_title: "Lecture Assistant (Dr. Solomon Zaato)",
+            volunteer_1_org: "UMK",
+            volunteer_1_date: "2024",
+            volunteer_1_desc: "Developed research frameworks for five academic papers, analyzing 20+ scholarly sources daily to support research development.",
+            volunteer_2_title: "Flood Relief Volunteer (VM Club)",
+            volunteer_2_org: "UMK",
+            volunteer_2_date: "2022 – 2023",
+            volunteer_2_desc: "Assisted in packaging and distributing essential supplies to flood victims and supported post-disaster recovery efforts."
+        };
 
-    <footer class="section">
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </footer>
+        async function onConfigChange(config) {
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const fontStack = `${customFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            
+            document.body.style.fontFamily = fontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const gradientBg = document.querySelector('.gradient-bg');
+            if (gradientBg) {
+                const gradientStart = config.background_gradient_start || defaultConfig.background_gradient_start;
+                const gradientEnd = config.background_gradient_end || defaultConfig.background_gradient_end;
+                gradientBg.style.background = `linear-gradient(135deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
+            }
+            
+            const nav = document.getElementById('navigation');
+            nav.style.backgroundColor = config.nav_background || defaultConfig.nav_background;
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.style.color = config.text_color || defaultConfig.text_color;
+                link.style.fontSize = `${baseSize}px`;
+            });
+            
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                activeLink.style.color = config.primary_accent || defaultConfig.primary_accent;
+            }
+            
+            const existingStyle = document.getElementById('dynamic-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            const style = document.createElement('style');
+            style.id = 'dynamic-styles';
+            style.textContent = `
+                .nav-link::after {
+                    background-color: ${config.primary_accent || defaultConfig.primary_accent};
+                }
+            `;
+            document.head.appendChild(style);
+            
+            const pageTitle = document.getElementById('pageTitle');
+            pageTitle.textContent = config.page_title || defaultConfig.page_title;
+            pageTitle.style.fontSize = `${baseSize * 2.5}px`;
+            pageTitle.style.color = 'white';
+            
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+            pageSubtitle.style.fontSize = `${baseSize * 1.125}px`;
+            pageSubtitle.style.color = 'white';
+            
+            const project1Title = document.getElementById('project1Title');
+            project1Title.textContent = config.project_1_title || defaultConfig.project_1_title;
+            project1Title.style.fontSize = `${baseSize * 1.5}px`;
+            project1Title.style.color = config.primary_accent || defaultConfig.primary_accent;
+            
+            document.getElementById('project1Org').textContent = config.project_1_org || defaultConfig.project_1_org;
+            document.getElementById('project1Org').style.fontSize = `${baseSize * 1.125}px`;
+            
+            document.getElementById('project1Date').textContent = config.project_1_date || defaultConfig.project_1_date;
+            document.getElementById('project1Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            document.getElementById('project1Desc').textContent = config.project_1_desc || defaultConfig.project_1_desc;
+            document.getElementById('project1Desc').style.fontSize = `${baseSize}px`;
+            
+            const project2Title = document.getElementById('project2Title');
+            project2Title.textContent = config.project_2_title || defaultConfig.project_2_title;
+            project2Title.style.fontSize = `${baseSize * 1.5}px`;
+            project2Title.style.color = config.primary_accent || defaultConfig.primary_accent;
+            
+            document.getElementById('project2Org').textContent = config.project_2_org || defaultConfig.project_2_org;
+            document.getElementById('project2Org').style.fontSize = `${baseSize * 1.125}px`;
+            
+            document.getElementById('project2Date').textContent = config.project_2_date || defaultConfig.project_2_date;
+            document.getElementById('project2Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            document.getElementById('project2Point1').textContent = config.project_2_point_1 || defaultConfig.project_2_point_1;
+            document.getElementById('project2Point1').style.fontSize = `${baseSize}px`;
+            
+            document.getElementById('project2Point2').textContent = config.project_2_point_2 || defaultConfig.project_2_point_2;
+            document.getElementById('project2Point2').style.fontSize = `${baseSize}px`;
+            
+            const project3Title = document.getElementById('project3Title');
+            project3Title.textContent = config.project_3_title || defaultConfig.project_3_title;
+            project3Title.style.fontSize = `${baseSize * 1.5}px`;
+            project3Title.style.color = config.primary_accent || defaultConfig.primary_accent;
+            
+            document.getElementById('project3Org').textContent = config.project_3_org || defaultConfig.project_3_org;
+            document.getElementById('project3Org').style.fontSize = `${baseSize * 1.125}px`;
+            
+            document.getElementById('project3Date').textContent = config.project_3_date || defaultConfig.project_3_date;
+            document.getElementById('project3Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            document.getElementById('project3Desc').textContent = config.project_3_desc || defaultConfig.project_3_desc;
+            document.getElementById('project3Desc').style.fontSize = `${baseSize}px`;
+            
+            const volunteer1Title = document.getElementById('volunteer1Title');
+            volunteer1Title.textContent = config.volunteer_1_title || defaultConfig.volunteer_1_title;
+            volunteer1Title.style.fontSize = `${baseSize * 1.5}px`;
+            volunteer1Title.style.color = config.primary_accent || defaultConfig.primary_accent;
+            
+            document.getElementById('volunteer1Org').textContent = config.volunteer_1_org || defaultConfig.volunteer_1_org;
+            document.getElementById('volunteer1Org').style.fontSize = `${baseSize * 1.125}px`;
+            
+            document.getElementById('volunteer1Date').textContent = config.volunteer_1_date || defaultConfig.volunteer_1_date;
+            document.getElementById('volunteer1Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            document.getElementById('volunteer1Desc').textContent = config.volunteer_1_desc || defaultConfig.volunteer_1_desc;
+            document.getElementById('volunteer1Desc').style.fontSize = `${baseSize}px`;
+            
+            const volunteer2Title = document.getElementById('volunteer2Title');
+            volunteer2Title.textContent = config.volunteer_2_title || defaultConfig.volunteer_2_title;
+            volunteer2Title.style.fontSize = `${baseSize * 1.5}px`;
+            volunteer2Title.style.color = config.primary_accent || defaultConfig.primary_accent;
+            
+            document.getElementById('volunteer2Org').textContent = config.volunteer_2_org || defaultConfig.volunteer_2_org;
+            document.getElementById('volunteer2Org').style.fontSize = `${baseSize * 1.125}px`;
+            
+            document.getElementById('volunteer2Date').textContent = config.volunteer_2_date || defaultConfig.volunteer_2_date;
+            document.getElementById('volunteer2Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            document.getElementById('volunteer2Desc').textContent = config.volunteer_2_desc || defaultConfig.volunteer_2_desc;
+            document.getElementById('volunteer2Desc').style.fontSize = `${baseSize}px`;
+        }
 
-</main>
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+                            set: (value) => {
+                                config.background_gradient_start = value;
+                                window.elementSdk.setConfig({ background_gradient_start: value });
+                            }
+                        },
+                        {
+                            get: () => config.nav_background || defaultConfig.nav_background,
+                            set: (value) => {
+                                config.nav_background = value;
+                                window.elementSdk.setConfig({ nav_background: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_accent || defaultConfig.primary_accent,
+                            set: (value) => {
+                                config.primary_accent = value;
+                                window.elementSdk.setConfig({ primary_accent: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_text || defaultConfig.card_text,
+                            set: (value) => {
+                                config.card_text = value;
+                                window.elementSdk.setConfig({ card_text: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["project_1_title", config.project_1_title || defaultConfig.project_1_title],
+                    ["project_1_org", config.project_1_org || defaultConfig.project_1_org],
+                    ["project_1_date", config.project_1_date || defaultConfig.project_1_date],
+                    ["project_1_desc", config.project_1_desc || defaultConfig.project_1_desc],
+                    ["project_2_title", config.project_2_title || defaultConfig.project_2_title],
+                    ["project_2_org", config.project_2_org || defaultConfig.project_2_org],
+                    ["project_2_date", config.project_2_date || defaultConfig.project_2_date],
+                    ["project_2_point_1", config.project_2_point_1 || defaultConfig.project_2_point_1],
+                    ["project_2_point_2", config.project_2_point_2 || defaultConfig.project_2_point_2],
+                    ["project_3_title", config.project_3_title || defaultConfig.project_3_title],
+                    ["project_3_org", config.project_3_org || defaultConfig.project_3_org],
+                    ["project_3_date", config.project_3_date || defaultConfig.project_3_date],
+                    ["project_3_desc", config.project_3_desc || defaultConfig.project_3_desc],
+                    ["volunteer_1_title", config.volunteer_1_title || defaultConfig.volunteer_1_title],
+                    ["volunteer_1_org", config.volunteer_1_org || defaultConfig.volunteer_1_org],
+                    ["volunteer_1_date", config.volunteer_1_date || defaultConfig.volunteer_1_date],
+                    ["volunteer_1_desc", config.volunteer_1_desc || defaultConfig.volunteer_1_desc],
+                    ["volunteer_2_title", config.volunteer_2_title || defaultConfig.volunteer_2_title],
+                    ["volunteer_2_org", config.volunteer_2_org || defaultConfig.volunteer_2_org],
+                    ["volunteer_2_date", config.volunteer_2_date || defaultConfig.volunteer_2_date],
+                    ["volunteer_2_desc", config.volunteer_2_desc || defaultConfig.volunteer_2_desc]
+                ])
+            });
+        }
 
-</body>
+        async function initApp() {
+            if (window.elementSdk) {
+                await onConfigChange(window.elementSdk.config || defaultConfig);
+            } else {
+                await onConfigChange(defaultConfig);
+            }
+        }
+
+        initApp();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af4693f835cf881',t:'MTc2NTk1MzQzOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
