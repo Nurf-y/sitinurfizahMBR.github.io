@@ -1,124 +1,454 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html">Experience</a>
-    <a href="education.html">Education</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html"class="active">Contact</a>
-</nav>
-
-    <meta charset="UTF-8">
-    <title>Sitinurfizah | Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .contact-section {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
         }
-
-        .contact-item {
-            margin-bottom: 15px;
-            font-size: 15px;
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px) rotate(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
         }
-
-        .contact-item a {
-            color: #0073e6;
-            text-decoration: none;
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
         }
-
-        .contact-item a:hover {
-            text-decoration: underline;
+        
+        @keyframes flowingWater {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-
-        .contact-form {
-            margin-top: 20px;
+        
+        @keyframes chasingLights {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
         }
-
-        .contact-form input,
-        .contact-form textarea {
+        
+        .contact-card {
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #dbeafe 40%,
+                #ffffff 60%,
+                #bfdbfe 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.8) 35%,
+                rgba(255, 255, 255, 0.9) 40%,
+                transparent 45%,
+                transparent 55%,
+                rgba(255, 255, 255, 0.8) 60%,
+                rgba(255, 255, 255, 0.9) 65%,
+                transparent 70%
+            );
+            background-size: 200% 200%;
+            pointer-events: none;
+            z-index: 1;
+            animation: chasingLights 3s linear infinite;
+        }
+        
+        .contact-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 14px;
         }
-
-        .contact-form button {
-            padding: 10px 20px;
-            background-color: #0073e6;
-            color: #fff;
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, 
+                #8b5cf6 0%, 
+                #a78bfa 20%, 
+                #c4b5fd 40%, 
+                #a78bfa 60%, 
+                #8b5cf6 80%, 
+                #7c3aed 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .contact-item {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: rgba(139, 92, 246, 0.1);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.75rem;
+            border: 2px solid rgba(139, 92, 246, 0.2);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn {
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 2rem;
             cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
         }
-
-        .contact-form button:hover {
-            background-color: #005bb5;
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6);
         }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #0073e6;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
+        
+        .submit-btn:active {
+            transform: translateY(-1px);
         }
     </style>
-</head>
-<body>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="margin: 0; padding: 0;">
+  <div class="w-full h-full gradient-bg"><!-- Navigation -->
+   <nav id="navigation" class="w-full" style="padding: 1rem 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+     <div class="flex flex-wrap gap-6 justify-center"><a href="index.html" class="nav-link font-medium" style="text-decoration: none;">Home</a> <a href="skills.html" class="nav-link font-medium" style="text-decoration: none;">Skills</a> <a href="experience.html" class="nav-link font-medium" style="text-decoration: none;">Experience</a> <a href="education.html" class="nav-link font-medium" style="text-decoration: none;">Education</a> <a href="projects.html" class="nav-link font-medium" style="text-decoration: none;">Projects</a> <a href="contact.html" class="nav-link active font-medium" style="text-decoration: none;">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main style="max-width: 800px; margin: 0 auto; padding: 4rem 1.5rem;"><!-- Header -->
+    <header class="text-center" style="margin-bottom: 4rem;">
+     <h1 id="pageTitle" class="font-bold" style="margin-bottom: 1rem; color: white; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.1); animation: float 3s ease-in-out infinite;">Contact</h1>
+     <p id="pageSubtitle" class="text-lg" style="color: white; opacity: 0.95;">Get in touch or connect online</p>
+    </header><!-- Contact Card -->
+    <div class="contact-card" style="padding: 3rem; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);">
+     <div style="position: absolute; top: 2rem; right: 2rem; font-size: 5rem; opacity: 0.1; z-index: 0;">
+      ✉️
+     </div><!-- Contact Information -->
+     <div style="margin-bottom: 3rem;">
+      <h2 class="font-bold" style="color: #1e293b; font-size: 1.8rem; margin-bottom: 2rem;">📬 Contact Information</h2>
+      <div class="contact-item"><strong style="color: #8b5cf6;">👤 Name:</strong>
+       <p id="contactName" style="margin: 0.5rem 0 0 0; color: #1e293b;">Sitinurfizah Binti Michael Beatty@Ripin</p>
+      </div>
+      <div class="contact-item"><strong style="color: #8b5cf6;">📍 Location:</strong>
+       <p id="contactLocation" style="margin: 0.5rem 0 0 0; color: #1e293b;">Keningau, Sabah</p>
+      </div>
+      <div class="contact-item"><strong style="color: #8b5cf6;">📱 Phone / WhatsApp:</strong>
+       <p style="margin: 0.5rem 0 0 0;"><a id="contactPhone" href="tel:+60145634492" style="color: #1e293b; text-decoration: none; margin-right: 1rem;" onmouseover="this.style.color='#3b82f6'" onmouseout="this.style.color='#1e293b'">014 563 4492</a> <a id="contactWhatsApp" href="https://wa.me/60145634492" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(135deg, #25d366 0%, #128c7e 100%); color: white; text-decoration: none; border-radius: 2rem; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(37, 211, 102, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(37, 211, 102, 0.3)'">💬 Chat on WhatsApp</a></p>
+      </div>
+      <div class="contact-item"><strong style="color: #8b5cf6;">✉️ Email:</strong>
+       <p style="margin: 0.5rem 0 0 0;"><a id="contactEmail" href="mailto:sitinurfizah@outlook.com" style="display: inline-block; padding: 0.5rem 1rem; background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; text-decoration: none; border-radius: 2rem; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 15px rgba(59, 130, 246, 0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 10px rgba(59, 130, 246, 0.3)'">📧 sitinurfizah@outlook.com</a></p>
+      </div>
+      <div class="contact-item"><strong style="color: #8b5cf6;">💼 LinkedIn:</strong>
+       <p style="margin: 0.5rem 0 0 0;"><a id="contactLinkedIn" href="https://linkedin.com/in/sitinurfizah-mbr-35003534a" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none; word-break: break-all;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">linkedin.com/in/sitinurfizah-mbr-35003534a</a></p>
+      </div>
+     </div><!-- Contact Form -->
+     <div>
+      <h2 class="font-bold" style="color: #1e293b; font-size: 1.8rem; margin-bottom: 1.5rem;">💬 Send a Message</h2>
+      <form id="contactForm" method="POST"><input type="text" name="name" class="form-input" placeholder="Your Name" required> <input type="email" name="email" class="form-input" placeholder="Your Email" required> <textarea name="message" class="form-input" placeholder="Your Message" rows="5" required style="resize: vertical; min-height: 120px;"></textarea> <button type="submit" class="submit-btn">Send Message 🚀</button>
+      </form>
+      <div id="formMessage" style="margin-top: 1rem; padding: 1rem; border-radius: 0.75rem; display: none;"></div>
+     </div>
+    </div><!-- Footer -->
+    <footer style="margin-top: 3rem; text-align: center;"><a href="index.html" style="color: white; text-decoration: none; font-size: 1.1rem; padding: 1rem 2rem; background: rgba(255, 255, 255, 0.2); border-radius: 50px; display: inline-block; transition: all 0.3s ease; backdrop-filter: blur(10px);" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'">← Back to Home</a>
+    </footer>
+   </main>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_gradient_start: "#8b5cf6",
+            background_gradient_end: "#c4b5fd",
+            nav_background: "#ffffff",
+            text_color: "#7c3aed",
+            primary_accent: "#7c3aed",
+            card_text: "#1e293b",
+            font_family: "Poppins",
+            font_size: 16,
+            page_title: "Contact",
+            page_subtitle: "Get in touch or connect online",
+            contact_name: "Sitinurfizah Binti Michael Beatty@Ripin",
+            contact_location: "Keningau, Sabah",
+            contact_phone: "014 563 4492",
+            contact_email: "sitinurfizah@outlook.com",
+            contact_linkedin: "https://linkedin.com/in/sitinurfizah-mbr-35003534a"
+        };
 
-<main class="container">
+        async function onConfigChange(config) {
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const fontStack = `${customFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            
+            document.body.style.fontFamily = fontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const gradientBg = document.querySelector('.gradient-bg');
+            if (gradientBg) {
+                const gradientStart = config.background_gradient_start || defaultConfig.background_gradient_start;
+                const gradientEnd = config.background_gradient_end || defaultConfig.background_gradient_end;
+                gradientBg.style.background = `linear-gradient(135deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
+            }
+            
+            const nav = document.getElementById('navigation');
+            nav.style.backgroundColor = config.nav_background || defaultConfig.nav_background;
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.style.color = config.text_color || defaultConfig.text_color;
+                link.style.fontSize = `${baseSize}px`;
+            });
+            
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                activeLink.style.color = config.primary_accent || defaultConfig.primary_accent;
+            }
+            
+            const existingStyle = document.getElementById('dynamic-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            const style = document.createElement('style');
+            style.id = 'dynamic-styles';
+            style.textContent = `
+                .nav-link::after {
+                    background-color: ${config.primary_accent || defaultConfig.primary_accent};
+                }
+            `;
+            document.head.appendChild(style);
+            
+            const pageTitle = document.getElementById('pageTitle');
+            pageTitle.textContent = config.page_title || defaultConfig.page_title;
+            pageTitle.style.fontSize = `${baseSize * 2.5}px`;
+            pageTitle.style.color = 'white';
+            
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+            pageSubtitle.style.fontSize = `${baseSize * 1.125}px`;
+            pageSubtitle.style.color = 'white';
+            
+            document.getElementById('contactName').textContent = config.contact_name || defaultConfig.contact_name;
+            document.getElementById('contactLocation').textContent = config.contact_location || defaultConfig.contact_location;
+            document.getElementById('contactPhone').textContent = config.contact_phone || defaultConfig.contact_phone;
+            
+            const emailLink = document.getElementById('contactEmail');
+            const email = config.contact_email || defaultConfig.contact_email;
+            emailLink.textContent = email;
+            emailLink.href = `mailto:${email}`;
+            
+            const linkedInLink = document.getElementById('contactLinkedIn');
+            const linkedInUrl = config.contact_linkedin || defaultConfig.contact_linkedin;
+            linkedInLink.textContent = linkedInUrl.replace('https://', '');
+            linkedInLink.href = linkedInUrl;
+        }
 
-    <header class="profile-header">
-        <h1>Contact</h1>
-        <p class="profile-title">Get in touch or connect online</p>
-    </header>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitBtn = e.target.querySelector('.submit-btn');
+            
+            // Disable button during submission
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending... ⏳';
+            
+            // Simulate form submission (replace with actual form handling)
+            setTimeout(() => {
+                formMessage.style.display = 'block';
+                formMessage.style.background = 'rgba(16, 185, 129, 0.1)';
+                formMessage.style.color = '#059669';
+                formMessage.style.border = '2px solid #10b981';
+                formMessage.textContent = '✅ Message sent successfully! I\'ll get back to you soon.';
+                
+                // Reset form
+                e.target.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message 🚀';
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }, 1500);
+        });
 
-    <section class="section contact-section">
-        <div class="contact-item">
-            <strong>Name:</strong> Sitinurfizah Binti Michael Beatty@Ripin
-        </div>
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+                            set: (value) => {
+                                config.background_gradient_start = value;
+                                window.elementSdk.setConfig({ background_gradient_start: value });
+                            }
+                        },
+                        {
+                            get: () => config.nav_background || defaultConfig.nav_background,
+                            set: (value) => {
+                                config.nav_background = value;
+                                window.elementSdk.setConfig({ nav_background: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_accent || defaultConfig.primary_accent,
+                            set: (value) => {
+                                config.primary_accent = value;
+                                window.elementSdk.setConfig({ primary_accent: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_text || defaultConfig.card_text,
+                            set: (value) => {
+                                config.card_text = value;
+                                window.elementSdk.setConfig({ card_text: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["contact_name", config.contact_name || defaultConfig.contact_name],
+                    ["contact_location", config.contact_location || defaultConfig.contact_location],
+                    ["contact_phone", config.contact_phone || defaultConfig.contact_phone],
+                    ["contact_email", config.contact_email || defaultConfig.contact_email],
+                    ["contact_linkedin", config.contact_linkedin || defaultConfig.contact_linkedin]
+                ])
+            });
+        }
 
-        <div class="contact-item">
-            <strong>Location:</strong> Keningau, Sabah
-        </div>
+        async function initApp() {
+            if (window.elementSdk) {
+                await onConfigChange(window.elementSdk.config || defaultConfig);
+            } else {
+                await onConfigChange(defaultConfig);
+            }
+        }
 
-        <div class="contact-item">
-            <strong>Phone:</strong> 014 563 4492
-        </div>
-
-        <div class="contact-item">
-            <strong>Email:</strong> <a href="mailto:sitinurfizah@outlook.com">sitinurfizah@outlook.com</a>
-        </div>
-
-        <div class="contact-item">
-            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sitinurfizah-mbr-35003534a" target="_blank">linkedin.com/in/sitinurfizah-mbr-35003534a</a>
-        </div>
-
-        <!-- Optional Contact Form -->
-        <div class="contact-form">
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </section>
-
-</main>
-
-</body>
+        initApp();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af4b2a280c3db1f',t:'MTc2NTk1NjQ0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
