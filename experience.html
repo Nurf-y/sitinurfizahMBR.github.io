@@ -1,80 +1,658 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <nav class="top-nav">
-    <a href="index.html">Home</a>
-    <a href="skills.html">Skills</a>
-    <a href="experience.html"class="active">Experience</a>
-    <a href="education.html">Education</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-</nav>
-    <meta charset="UTF-8">
-    <title>Fizah | Experience</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Experience</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px) rotate(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px) scale(0.7);
+            }
+            60% {
+                transform: translateX(10px) scale(1.08);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.5);
+            }
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 8px 35px rgba(16, 185, 129, 0.8);
+            }
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(236, 72, 153, 0.7), 0 0 80px rgba(236, 72, 153, 0.4);
+            }
+        }
+        
+        @keyframes flowingWater {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        @keyframes chasingLights {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 200% 200%;
+            }
+        }
+        
+        @keyframes chasingLightsReverse {
+            0% {
+                background-position: 200% 200%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+        
+        .experience-card {
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .experience-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255, 255, 255, 0.8) 35%,
+                rgba(255, 255, 255, 0.9) 40%,
+                transparent 45%,
+                transparent 55%,
+                rgba(255, 255, 255, 0.8) 60%,
+                rgba(255, 255, 255, 0.9) 65%,
+                transparent 70%
+            );
+            background-size: 200% 200%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .card-blue {
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #e0f2fe 40%,
+                #ffffff 60%,
+                #dbeafe 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+        }
+        
+        .card-blue::after {
+            animation: chasingLights 3s linear infinite;
+        }
+        
+        .card-green {
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            animation-delay: 0.3s;
+            background: linear-gradient(
+                135deg,
+                #f8fafc 0%,
+                #ffffff 20%,
+                #d1fae5 40%,
+                #ffffff 60%,
+                #a7f3d0 80%,
+                #f8fafc 100%
+            );
+            background-size: 300% 300%;
+            animation: slideInLeft 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+                       flowingWater 10s ease-in-out infinite;
+            animation-delay: 0.3s, 0s;
+        }
+        
+        .card-green::after {
+            animation: chasingLightsReverse 3s linear infinite;
+        }
+        
+        .experience-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .experience-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .experience-card:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-18px) scale(1.04);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        .experience-card:hover .badge {
+            transform: scale(1.2) rotate(8deg);
+        }
+        
+        .experience-card:hover .role-title {
+            background: linear-gradient(90deg, #7c3aed, #ec4899, #3b82f6, #7c3aed);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowSlide 3s ease infinite;
+        }
+        
+        @keyframes rainbowSlide {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .text-justified {
+            text-align: justify;
+        }
+        
+        .bullet-point {
+            position: relative;
+            padding-left: 1.8rem;
+            opacity: 0;
+            animation: bounceIn 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transition: all 0.3s ease;
+        }
+        
+        .bullet-point:hover {
+            transform: translateX(8px);
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.08) 0%, transparent 100%);
+            padding: 0.5rem 1rem 0.5rem 1.8rem;
+            margin-left: -1rem;
+            border-radius: 8px;
+        }
+        
+        .bullet-point:nth-child(1) { animation-delay: 0.1s; }
+        .bullet-point:nth-child(2) { animation-delay: 0.15s; }
+        .bullet-point:nth-child(3) { animation-delay: 0.2s; }
+        .bullet-point:nth-child(4) { animation-delay: 0.25s; }
+        .bullet-point:nth-child(5) { animation-delay: 0.3s; }
+        .bullet-point:nth-child(6) { animation-delay: 0.35s; }
+        .bullet-point:nth-child(7) { animation-delay: 0.4s; }
+        .bullet-point:nth-child(8) { animation-delay: 0.45s; }
+        .bullet-point:nth-child(9) { animation-delay: 0.5s; }
+        .bullet-point:nth-child(10) { animation-delay: 0.55s; }
+        
+        .bullet-point::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .bullet-blue::before {
+            color: #8b5cf6;
+        }
+        
+        .bullet-pink::before {
+            color: #8b5cf6;
+        }
+        
+        .bullet-point:hover::before {
+            transform: scale(1.5) rotate(180deg);
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .badge:hover::before {
+            left: 100%;
+        }
+        
+        .badge-admin {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+        }
+        
+        .badge-marketing {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, 
+                #8b5cf6 0%, 
+                #a78bfa 20%, 
+                #c4b5fd 40%, 
+                #a78bfa 60%, 
+                #8b5cf6 80%, 
+                #7c3aed 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.45rem 1.2rem;
+            border-radius: 35px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            box-shadow: 0 5px 25px rgba(16, 185, 129, 0.5);
+            animation: pulse 2.5s ease-in-out infinite;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .role-title {
+            transition: all 0.5s ease;
+        }
+        
+        .org-name {
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover .org-name {
+            transform: translateX(5px);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="margin: 0; padding: 0;">
+  <div class="w-full h-full gradient-bg"><!-- Navigation -->
+   <nav id="navigation" class="w-full" style="padding: 1rem 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+     <div class="flex flex-wrap gap-6 justify-center"><a href="index.html" class="nav-link font-medium" style="text-decoration: none;">Home</a> <a href="skills.html" class="nav-link font-medium" style="text-decoration: none;">Skills</a> <a href="experience.html" class="nav-link active font-medium" style="text-decoration: none;">Experience</a> <a href="education.html" class="nav-link font-medium" style="text-decoration: none;">Education</a> <a href="projects.html" class="nav-link font-medium" style="text-decoration: none;">Projects</a> <a href="contact.html" class="nav-link font-medium" style="text-decoration: none;">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Main Content -->
+   <main style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;"><!-- Header -->
+    <header class="text-center" style="margin-bottom: 4rem; animation: fadeInUp 0.8s ease-out;">
+     <h1 id="pageTitle" class="font-bold" style="margin-bottom: 1rem; color: white; font-size: 3rem; text-shadow: 0 2px 10px rgba(0,0,0,0.1); animation: float 3s ease-in-out infinite;">Professional Experience</h1>
+     <p id="pageSubtitle" class="text-lg" style="color: white; opacity: 0.95;">Career journey and professional roles across diverse industries</p>
+    </header><!-- Experience Grid -->
+    <div class="space-y-10"><!-- Job 1: Admin Clerk -->
+     <div class="experience-card card-blue rounded-2xl" style="padding: 3rem; box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       🐱
+      </div>
+      <div class="mb-5">
+       <div class="flex flex-wrap items-center gap-3 mb-4"><span class="badge badge-admin">💼 Administration</span> <span class="status-badge">✨ Current Role</span>
+       </div>
+       <h3 id="job1Title" class="role-title font-bold" style="margin-bottom: 0.75rem; color: #000000; font-size: 2rem; text-align: justify;">Admin Clerk</h3>
+       <p id="job1Org" class="org-name font-semibold" style="color: #374151; margin-bottom: 0.5rem; font-size: 1.2rem; text-align: justify;">Jawala Plantation Industries Sdn. Bhd.</p>
+       <p id="job1Date" class="text-sm" style="color: #6b7280; font-weight: 600; text-align: justify;">📅 August 2025 – Present</p>
+      </div>
+      <div class="space-y-3" style="margin-top: 2rem;">
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Check, prepare, and summarize monthly claims and deductibles from contractors, suppliers, and vendors.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Prepare and manage correspondence, reports, and other documents accurately.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Maintain filing systems, records, and databases, ensuring proper documentation.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Accurately type, prepare, and maintain accounting documents and bookkeeping records.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Liaise with suppliers, contractors, and service providers to coordinate requirements.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Key in data for fixed assets (including labeling), building projects, LPOs, and monthly RFs for food supply across three divisions.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Manage camp food and beverage logistics efficiently.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Monitor office supplies and arrange for timely replenishment.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Research, track, and resolve accounting or documentation discrepancies.</p>
+       </div>
+       <div class="bullet-point bullet-blue text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Perform additional administrative tasks assigned by the Supervisor or Head of Department.</p>
+       </div>
+      </div>
+     </div><!-- Job 2: Marketing Intern -->
+     <div class="experience-card card-green rounded-2xl" style="padding: 3rem; box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);">
+      <div style="position: absolute; top: 2rem; right: 2rem; font-size: 4rem; opacity: 0.15; z-index: 0;">
+       🌸
+      </div>
+      <div class="mb-5"><span class="badge badge-marketing">🎨 Marketing &amp; Media</span>
+       <h3 id="job2Title" class="role-title font-bold" style="margin-top: 1rem; margin-bottom: 0.75rem; color: #000000; font-size: 2rem; text-align: justify;">Operations, Marketing &amp; Digital Media Support (Intern)</h3>
+       <p id="job2Org" class="org-name font-semibold" style="color: #374151; margin-bottom: 0.5rem; font-size: 1.2rem; text-align: justify;">Angkatan Koperasi Kebangsaan Malaysia (ANGKASA) Sdn. Bhd.</p>
+       <p id="job2Date" class="text-sm" style="color: #6b7280; font-weight: 600; text-align: justify;">📅 March – July 2024</p>
+      </div>
+      <div class="space-y-3" style="margin-top: 2rem;">
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Developed daily promotional content for AngkasaMart, increasing views from 0 to 2K in one month.</p>
+       </div>
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Designed banners, catalogs, and promotional videos for Madani Sales Carnival; launched paid ads generating 15K+ views in 20 days.</p>
+       </div>
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Promoted events, answered inquiries, and boosted engagement, leading to full stock sell-out.</p>
+       </div>
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Implemented paid review initiatives, improving customer engagement by 60% and enhancing brand trust.</p>
+       </div>
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Managed online customer interactions, boosting followers and brand awareness through social media platforms.</p>
+       </div>
+       <div class="bullet-point bullet-pink text-justified" style="line-height: 1.9; color: #1e293b;">
+        <p>Accompanied CEO to events to document activities via videography and content creation, including engagements with OKU schools, Tahfiz institutions, and cooperatives.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <script>
+        const defaultConfig = {
+            background_gradient_start: "#8b5cf6",
+            background_gradient_end: "#c4b5fd",
+            nav_background: "#ffffff",
+            text_color: "#7c3aed",
+            primary_accent: "#7c3aed",
+            card_text: "#1e293b",
+            font_family: "Poppins",
+            font_size: 16,
+            page_title: "Professional Experience",
+            page_subtitle: "Career journey and professional roles across diverse industries",
+            job_1_title: "Admin Clerk",
+            job_1_org: "Jawala Plantation Industries Sdn. Bhd.",
+            job_1_date: "August 2025 – Present",
+            job_2_title: "Operations, Marketing & Digital Media Support (Intern)",
+            job_2_org: "Angkatan Koperasi Kebangsaan Malaysia (ANGKASA) Sdn. Bhd.",
+            job_2_date: "March – July 2024"
+        };
 
-<main class="container">
+        async function onConfigChange(config) {
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const customFont = config.font_family || defaultConfig.font_family;
+            const fontStack = `${customFont}, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif`;
+            
+            document.body.style.fontFamily = fontStack;
+            document.body.style.fontSize = `${baseSize}px`;
+            
+            const gradientBg = document.querySelector('.gradient-bg');
+            if (gradientBg) {
+                const gradientStart = config.background_gradient_start || defaultConfig.background_gradient_start;
+                const gradientEnd = config.background_gradient_end || defaultConfig.background_gradient_end;
+                gradientBg.style.background = `linear-gradient(135deg, ${gradientStart} 0%, ${gradientEnd} 100%)`;
+            }
+            
+            const nav = document.getElementById('navigation');
+            nav.style.backgroundColor = config.nav_background || defaultConfig.nav_background;
+            
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.style.color = config.text_color || defaultConfig.text_color;
+                link.style.fontSize = `${baseSize}px`;
+            });
+            
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) {
+                activeLink.style.color = config.primary_accent || defaultConfig.primary_accent;
+            }
+            
+            const existingStyle = document.getElementById('dynamic-styles');
+            if (existingStyle) {
+                existingStyle.remove();
+            }
+            
+            const style = document.createElement('style');
+            style.id = 'dynamic-styles';
+            style.textContent = `
+                .nav-link::after {
+                    background-color: ${config.primary_accent || defaultConfig.primary_accent};
+                }
+            `;
+            document.head.appendChild(style);
+            
+            const pageTitle = document.getElementById('pageTitle');
+            pageTitle.textContent = config.page_title || defaultConfig.page_title;
+            pageTitle.style.fontSize = `${baseSize * 2.5}px`;
+            pageTitle.style.color = 'white';
+            
+            const pageSubtitle = document.getElementById('pageSubtitle');
+            pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+            pageSubtitle.style.fontSize = `${baseSize * 1.125}px`;
+            pageSubtitle.style.color = 'white';
+            
+            const job1Title = document.getElementById('job1Title');
+            job1Title.textContent = config.job_1_title || defaultConfig.job_1_title;
+            job1Title.style.fontSize = `${baseSize * 2}px`;
+            
+            document.getElementById('job1Org').textContent = config.job_1_org || defaultConfig.job_1_org;
+            document.getElementById('job1Org').style.fontSize = `${baseSize * 1.2}px`;
+            
+            document.getElementById('job1Date').textContent = "📅 " + (config.job_1_date || defaultConfig.job_1_date);
+            document.getElementById('job1Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            const job2Title = document.getElementById('job2Title');
+            job2Title.textContent = config.job_2_title || defaultConfig.job_2_title;
+            job2Title.style.fontSize = `${baseSize * 2}px`;
+            
+            document.getElementById('job2Org').textContent = config.job_2_org || defaultConfig.job_2_org;
+            document.getElementById('job2Org').style.fontSize = `${baseSize * 1.2}px`;
+            
+            document.getElementById('job2Date').textContent = "📅 " + (config.job_2_date || defaultConfig.job_2_date);
+            document.getElementById('job2Date').style.fontSize = `${baseSize * 0.875}px`;
+            
+            const bulletPoints = document.querySelectorAll('.bullet-point p');
+            bulletPoints.forEach(p => {
+                p.style.fontSize = `${baseSize}px`;
+                p.style.color = config.card_text || defaultConfig.card_text;
+            });
+        }
 
-    <header class="profile-header">
-        <h1>Experience</h1>
-        <p class="profile-title">Administrative Professional | Fresh Graduate</p>
-    </header>
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_gradient_start || defaultConfig.background_gradient_start,
+                            set: (value) => {
+                                config.background_gradient_start = value;
+                                window.elementSdk.setConfig({ background_gradient_start: value });
+                            }
+                        },
+                        {
+                            get: () => config.nav_background || defaultConfig.nav_background,
+                            set: (value) => {
+                                config.nav_background = value;
+                                window.elementSdk.setConfig({ nav_background: value });
+                            }
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => {
+                                config.text_color = value;
+                                window.elementSdk.setConfig({ text_color: value });
+                            }
+                        },
+                        {
+                            get: () => config.primary_accent || defaultConfig.primary_accent,
+                            set: (value) => {
+                                config.primary_accent = value;
+                                window.elementSdk.setConfig({ primary_accent: value });
+                            }
+                        },
+                        {
+                            get: () => config.card_text || defaultConfig.card_text,
+                            set: (value) => {
+                                config.card_text = value;
+                                window.elementSdk.setConfig({ card_text: value });
+                            }
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: {
+                        get: () => config.font_family || defaultConfig.font_family,
+                        set: (value) => {
+                            config.font_family = value;
+                            window.elementSdk.setConfig({ font_family: value });
+                        }
+                    },
+                    fontSizeable: {
+                        get: () => config.font_size || defaultConfig.font_size,
+                        set: (value) => {
+                            config.font_size = value;
+                            window.elementSdk.setConfig({ font_size: value });
+                        }
+                    }
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["page_title", config.page_title || defaultConfig.page_title],
+                    ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+                    ["job_1_title", config.job_1_title || defaultConfig.job_1_title],
+                    ["job_1_org", config.job_1_org || defaultConfig.job_1_org],
+                    ["job_1_date", config.job_1_date || defaultConfig.job_1_date],
+                    ["job_2_title", config.job_2_title || defaultConfig.job_2_title],
+                    ["job_2_org", config.job_2_org || defaultConfig.job_2_org],
+                    ["job_2_date", config.job_2_date || defaultConfig.job_2_date]
+                ])
+            });
+        }
 
-    <!-- Admin Clerk -->
-    <section class="section">
-        <h2>Admin Clerk</h2>
-        <p><strong>Organization:</strong> Jawala Plantation Industries Sdn. Bhd.</p>
-        <p><strong>Duration:</strong> August 2025 – Present</p>
-        <ul>
-            <li>Check, prepare, and summarize monthly claims and deductibles from contractors, suppliers, and vendors.</li>
-            <li>Prepare and manage correspondence, reports, and other documents accurately.</li>
-            <li>Maintain filing systems, records, and databases, ensuring proper documentation.</li>
-            <li>Accurately type, prepare, and maintain accounting documents and bookkeeping records.</li>
-            <li>Liaise with suppliers, contractors, and service providers to coordinate requirements.</li>
-            <li>Key in data for fixed assets (including labeling), building projects, LPOs, and monthly RFs for food supply across three divisions.</li>
-            <li>Manage camp food and beverage logistics efficiently.</li>
-            <li>Monitor office supplies and arrange for timely replenishment.</li>
-            <li>Research, track, and resolve accounting or documentation discrepancies.</li>
-            <li>Perform additional administrative tasks assigned by the Supervisor or Head of Department.</li>
-        </ul>
-    </section>
+        async function initApp() {
+            if (window.elementSdk) {
+                await onConfigChange(window.elementSdk.config || defaultConfig);
+            } else {
+                await onConfigChange(defaultConfig);
+            }
+        }
 
-    <!-- Operations, Marketing & Digital Media Support (Intern) -->
-    <section class="section">
-        <h2>Operations, Marketing & Digital Media Support (Intern)</h2>
-        <p><strong>Organization:</strong> Angkatan Koperasi Kebangsaan Malaysia (ANGKASA) Sdn. Bhd.</p>
-        <p><strong>Duration:</strong> March – July 2024</p>
-        <ul>
-            <li>Developed daily promotional content for AngkasaMart, increasing views from 0 to 2K in one month.</li>
-            <li>Designed banners, catalogs, and promotional videos for Madani Sales Carnival; launched paid ads generating 15K+ views in 20 days.</li>
-            <li>Promoted events, answered inquiries, and boosted engagement, leading to full stock sell-out.</li>
-            <li>Implemented paid review initiatives, improving customer engagement by 60% and enhancing brand trust.</li>
-            <li>Managed online customer interactions, boosting followers and brand awareness through social media platforms.</li>
-            <li>Accompanied CEO to events to document activities via videography and content creation, including engagements with OKU schools, Tahfiz institutions, and cooperatives.</li>
-        </ul>
-    </section>
-
-    <!-- Substitute Teacher -->
-    <section class="section">
-        <h2>Substitute Teacher</h2>
-        <p><strong>Organization:</strong> KAFA, Kg Lintuhun Baru, Sook</p>
-        <p><strong>Duration:</strong> January – August 2025</p>
-        <ul>
-            <li>Prepared and organized all necessary materials for daily teaching and student activities.</li>
-            <li>Managed and supervised a classroom of 9–10-year-old students, maintaining discipline and engagement.</li>
-            <li>Planned and executed educational activities to support learning objectives effectively.</li>
-            <li>Assisted in administrative tasks related to classroom management and documentation.</li>
-        </ul>
-    </section>
-
-    <footer class="section">
-        <a href="index.html" class="back-link">← Back to Home</a>
-    </footer>
-
-</main>
-
-</body>
+        initApp();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9af4884dd022cde6',t:'MTc2NTk1NDcxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
